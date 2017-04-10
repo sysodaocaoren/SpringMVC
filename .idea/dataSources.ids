@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - ca@localhost [2]" uuid="b3c0c69f-914c-4561-ad5d-b143a6695a60">
+    <database-info product="MySQL" version="5.6.27" jdbc-version="3.0" driver-name="MySQL-AB JDBC Driver" driver-version="mysql-connector-java-5.1.10 ( Revision: ${svn.Revision} )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="ca"/>
+      <table id="2" parent="1" name="ca_cert_sn"/>
+      <table id="3" parent="1" name="ca_config"/>
+      <table id="4" parent="1" name="ca_crl"/>
+      <table id="5" parent="1" name="ca_info"/>
+      <table id="6" parent="1" name="ca_ldap_failure"/>
+      <table id="7" parent="1" name="ca_operator"/>
+      <table id="8" parent="1" name="ca_policy"/>
+      <table id="9" parent="1" name="ca_remote_app"/>
+      <table id="10" parent="1" name="ca_services_start"/>
+      <table id="11" parent="1" name="ca_sys_log"/>
+      <table id="12" parent="1" name="ca_user_sn"/>
+      <table id="13" parent="1" name="cert_req"/>
+      <table id="14" parent="1" name="cert_template"/>
+      <table id="15" parent="1" name="keyusage_base"/>
+      <table id="16" parent="1" name="keyusage_extended"/>
+      <table id="17" parent="1" name="km_foruse"/>
+      <table id="18" parent="1" name="km_history"/>
+      <table id="19" parent="1" name="km_inuse"/>
+      <table id="20" parent="1" name="km_key_sn"/>
+      <table id="21" parent="1" name="km_operator"/>
+      <table id="22" parent="1" name="km_sys_log"/>
+      <table id="23" parent="1" name="km_sys_set"/>
+      <table id="24" parent="1" name="ra_certtemplate"/>
+      <table id="25" parent="1" name="ra_config"/>
+      <table id="26" parent="1" name="ra_keyusage_ext"/>
+      <table id="27" parent="1" name="ra_lra_config"/>
+      <table id="28" parent="1" name="ra_operator"/>
+      <table id="29" parent="1" name="ra_sys_log"/>
+      <table id="30" parent="1" name="roam_cert"/>
+      <table id="31" parent="1" name="user_cert"/>
+      <table id="32" parent="1" name="user_certtemplate"/>
+      <table id="33" parent="1" name="user_dn_map"/>
+      <table id="34" parent="1" name="user_info"/>
+      <table id="35" parent="1" name="user_revoke_cert"/>
+      <column id="36" parent="2" name="CERT_SN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="37" parent="2" name="CERT_SN_TIME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="38" parent="3" name="CA_IP">
+        <mandatory>1</mandatory>
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="39" parent="3" name="CA_PORT">
+        <mandatory>1</mandatory>
+        <data-type>varchar(6)</data-type>
+      </column>
+      <column id="40" parent="3" name="KM_IP">
+        <mandatory>1</mandatory>
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="41" parent="3" name="KM_PORT">
+        <mandatory>1</mandatory>
+        <data-type>varchar(6)</data-type>
+      </column>
+      <column id="42" parent="3" name="CPS_POINT">
+        <mandatory>1</mandatory>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="43" parent="3" name="CRL_POINT">
+        <mandatory>1</mandatory>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="44" parent="4" name="CRL_VALUE">
+        <mandatory>1</mandatory>
+        <data-type>varchar(4096)</data-type>
+      </column>
+      <column id="45" parent="4" name="CRL_VALUE_LEN">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="46" parent="4" name="CRL_TIME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="47" parent="4" name="UPDATE_TIME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="48" parent="5" name="CA_DN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="49" parent="5" name="CA_CERT">
+        <mandatory>1</mandatory>
+        <data-type>varchar(4096)</data-type>
+      </column>
+      <column id="50" parent="5" name="CA_CERT_LEN">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="51" parent="5" name="CA_KEYID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="52" parent="5" name="CA_PUBKEY">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2048)</data-type>
+      </column>
+      <column id="53" parent="5" name="CA_PUBKEY_LEN">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="54" parent="5" name="CA_PRIKEY">
+        <data-type>varchar(2048)</data-type>
+      </column>
+      <column id="55" parent="5" name="CA_PRIKEY_LEN">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="56" parent="5" name="CA_BEGINTIME">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="57" parent="5" name="CA_ENDTIME">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <key id="58" parent="5" name="PRIMARY">
+        <columns>CA_DN</columns>
+        <primary>1</primary>
+      </key>
+      <column id="59" parent="6" name="USER_SN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="60" parent="6" name="USER_DN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="61" parent="6" name="OP_TYPE">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="62" parent="6" name="OP_TIME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="63" parent="7" name="OPERATOR_DN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="64" parent="7" name="OPERATOR_CERT">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2048)</data-type>
+      </column>
+      <column id="65" parent="7" name="OPERATOR_CERT_LEN">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="66" parent="7" name="OPERATOR_AUTH">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="67" parent="7" name="PRIMARY">
+        <columns>OPERATOR_DN</columns>
+        <primary>1</primary>
+      </key>
+      <column id="68" parent="8" name="ROOTCERT_VALID">
+        <mandatory>1</mandatory>
+        <data-type>varchar(4)</data-type>
+      </column>
+      <column id="69" parent="8" name="USERCERT_VALID">
+        <mandatory>1</mandatory>
+        <data-type>varchar(4)</data-type>
+      </column>
+      <column id="70" parent="8" name="CRL_UPTIME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(4)</data-type>
+      </column>
+      <column id="71" parent="8" name="PUBKEY_ALG">
+        <mandatory>1</mandatory>
+        <data-type>varchar(6)</data-type>
+      </column>
+      <column id="72" parent="8" name="HASH_ALG">
+        <mandatory>1</mandatory>
+        <data-type>varchar(6)</data-type>
+      </column>
+      <column id="73" parent="9" name="APP_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="74" parent="9" name="APP_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="75" parent="9" name="APP_STATUS">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="76" parent="9" name="APP_AUTH_CODE">
+        <mandatory>1</mandatory>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <key id="77" parent="9" name="PRIMARY">
+        <columns>APP_ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="78" parent="10" name="START_FLAG">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="79" parent="11" name="LOG_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="80" parent="11" name="LOG_TYPE">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="81" parent="11" name="LOG_OPERATOR">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="82" parent="11" name="LOG_CONTENT">
+        <mandatory>1</mandatory>
+        <data-type>varchar(512)</data-type>
+      </column>
+      <column id="83" parent="11" name="LOG_RESULT">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="84" parent="11" name="LOG_TIME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <key id="85" parent="11" name="PRIMARY">
+        <columns>LOG_ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="86" parent="12" name="USER_SN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="87" parent="12" name="USER_SN_TIME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="88" parent="13" name="USER_REQ_SN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="89" parent="13" name="USER_SN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="90" parent="13" name="USER_REQ_TYPE">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="91" parent="13" name="USER_ENCCERT_SN">
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="92" parent="13" name="USER_SIGNCERT_SN">
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="93" parent="13" name="USER_CERT_TYPE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="94" parent="13" name="USER_PKCS10_REQ">
+        <data-type>varchar(2048)</data-type>
+      </column>
+      <column id="95" parent="13" name="USER_CHECK_FALG">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="96" parent="13" name="USER_REQ_TIME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="97" parent="13" name="USER_CERT_REVOKE_REASON">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="98" parent="13" name="USER_CERT_TEMPLATE">
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="99" parent="13" name="PRIMARY">
+        <columns>USER_REQ_SN</columns>
+        <primary>1</primary>
+      </key>
+      <column id="100" parent="14" name="CTM_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="101" parent="14" name="CTM_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="102" parent="14" name="CERT_TYPE">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="103" parent="14" name="KEYUSAGE_NUM1">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="104" parent="14" name="KEYUSAGE_LIST1">
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="105" parent="14" name="KEYUSAGE_NUM2">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="106" parent="14" name="KEYUSAGE_LIST2">
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="107" parent="14" name="KEYUSAGE_STANDARD_NUM">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="108" parent="14" name="KEYUSAGE_STANDARD_LIST">
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="109" parent="14" name="KEYUSAGE_STANDARD_CRUCIAL">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="110" parent="14" name="KEYUSAGE_EXTENDED_NUM">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="111" parent="14" name="KEYUSAGE_EXTENDED_LIST">
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="112" parent="14" name="KEYUSAGE_EXTENDED_CRUCIAL">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="113" parent="14" name="CTM_STATUS">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="114" parent="14" name="CTM_KEYSTORAGE">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="115" parent="15" name="KU_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="116" parent="15" name="KU_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="117" parent="15" name="KU_VALUE">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="118" parent="16" name="CKE_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="119" parent="16" name="CKE_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="120" parent="16" name="CKE_TYPE">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="121" parent="16" name="CKE_OID">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="122" parent="17" name="KEY_SN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="123" parent="17" name="KEY_PUBLIC">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2048)</data-type>
+      </column>
+      <column id="124" parent="17" name="KEY_PUBLIC_LEN">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="125" parent="17" name="KEY_PRIVATE">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2048)</data-type>
+      </column>
+      <column id="126" parent="17" name="KEY_PRIVATE_LEN">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="127" parent="17" name="KEY_GEN_TIME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <key id="128" parent="17" name="PRIMARY">
+        <columns>KEY_SN</columns>
+        <primary>1</primary>
+      </key>
+      <column id="129" parent="18" name="KEY_SN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="130" parent="18" name="CERT_SN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="131" parent="18" name="KEY_PUBLIC">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2048)</data-type>
+      </column>
+      <column id="132" parent="18" name="KEY_PUBLIC_LEN">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="133" parent="18" name="KEY_PRIVATE">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2048)</data-type>
+      </column>
+      <column id="134" parent="18" name="KEY_PRIVATE_LEN">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="135" parent="18" name="KEY_REVOKE_TIME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <key id="136" parent="18" name="PRIMARY">
+        <columns>KEY_SN</columns>
+        <primary>1</primary>
+      </key>
+      <column id="137" parent="19" name="KEY_SN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="138" parent="19" name="CERT_SN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="139" parent="19" name="KEY_PUBLIC">
+        <mandatory>1</mandatory>
+        <data-type>varchar(1024)</data-type>
+      </column>
+      <column id="140" parent="19" name="KEY_PUBLIC_LEN">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="141" parent="19" name="KEY_PRIVATE">
+        <mandatory>1</mandatory>
+        <data-type>varchar(1024)</data-type>
+      </column>
+      <column id="142" parent="19" name="KEY_PRIVATE_LEN">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="143" parent="19" name="KEY_REQ_TIME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <key id="144" parent="19" name="PRIMARY">
+        <columns>KEY_SN</columns>
+        <primary>1</primary>
+      </key>
+      <column id="145" parent="20" name="KEY_SN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="146" parent="20" name="KEY_SN_TIME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="147" parent="21" name="OPERATOR_DN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="148" parent="21" name="OPERATOR_CERT">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2048)</data-type>
+      </column>
+      <column id="149" parent="21" name="OPERATOR_CERT_LEN">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="150" parent="21" name="OPERATOR_AUTH">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="151" parent="21" name="PRIMARY">
+        <columns>OPERATOR_DN</columns>
+        <primary>1</primary>
+      </key>
+      <column id="152" parent="22" name="LOG_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="153" parent="22" name="LOG_TYPE">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="154" parent="22" name="LOG_OPERATOR">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="155" parent="22" name="LOG_CONTENT">
+        <mandatory>1</mandatory>
+        <data-type>varchar(256)</data-type>
+      </column>
+      <column id="156" parent="22" name="LOG_RESULT">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="157" parent="22" name="LOG_TIME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <key id="158" parent="22" name="PRIMARY">
+        <columns>LOG_ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="159" parent="23" name="SYS_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="160" parent="23" name="SYS_VALUE">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="161" parent="24" name="CERTTMP_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="162" parent="24" name="CERTTMP_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="163" parent="24" name="REMARKS">
+        <data-type>varchar(256)</data-type>
+      </column>
+      <column id="164" parent="24" name="KEY_STORAGE">
+        <data-type>varchar(8)</data-type>
+      </column>
+      <key id="165" parent="24" name="PRIMARY">
+        <columns>CERTTMP_ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="166" parent="25" name="CA_IP">
+        <mandatory>1</mandatory>
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="167" parent="25" name="CA_PORT">
+        <mandatory>1</mandatory>
+        <data-type>varchar(6)</data-type>
+      </column>
+      <column id="168" parent="26" name="CKE_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="169" parent="26" name="CKE_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <key id="170" parent="26" name="PRIMARY">
+        <columns>CKE_ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="171" parent="27" name="LRA_PORT">
+        <mandatory>1</mandatory>
+        <data-type>varchar(6)</data-type>
+      </column>
+      <column id="172" parent="28" name="OPERATOR_DN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="173" parent="28" name="OPERATOR_CERT">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2048)</data-type>
+      </column>
+      <column id="174" parent="28" name="OPERATOR_CERT_LEN">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="175" parent="28" name="OPERATOR_AUTH">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="176" parent="28" name="PRIMARY">
+        <columns>OPERATOR_DN</columns>
+        <primary>1</primary>
+      </key>
+      <column id="177" parent="29" name="LOG_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="178" parent="29" name="LOG_TYPE">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="179" parent="29" name="LOG_OPERATOR">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="180" parent="29" name="LOG_CONTENT">
+        <mandatory>1</mandatory>
+        <data-type>varchar(256)</data-type>
+      </column>
+      <column id="181" parent="29" name="LOG_RESULT">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="182" parent="29" name="LOG_TIME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <key id="183" parent="29" name="PRIMARY">
+        <columns>LOG_ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="184" parent="30" name="USER_SN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="185" parent="30" name="CERT_SN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="186" parent="30" name="USER_PFX">
+        <mandatory>1</mandatory>
+        <data-type>varchar(6144)</data-type>
+      </column>
+      <column id="187" parent="30" name="USER_PFX_LEN">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="188" parent="30" name="USER_PFX_PASSWORD">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="189" parent="30" name="USER_CERT_TEMPLATE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="190" parent="30" name="PFX_TIME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="191" parent="31" name="CERT_SN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="192" parent="31" name="CERT_TYPE">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="193" parent="31" name="USER_SN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="194" parent="31" name="CERT_VALUE">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2048)</data-type>
+      </column>
+      <column id="195" parent="31" name="CERT_VALUE_LEN">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="196" parent="31" name="CERT_END_TIME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="197" parent="31" name="USER_CERT_TEMPLATE">
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="198" parent="31" name="PRIMARY">
+        <columns>CERT_SN</columns>
+        <primary>1</primary>
+      </key>
+      <column id="199" parent="32" name="USER_SN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="200" parent="32" name="CERTTMP_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="201" parent="32" name="CHECK_STATUS">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="202" parent="32" name="REMARKS">
+        <data-type>varchar(256)</data-type>
+      </column>
+      <column id="203" parent="33" name="OLD_DN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="204" parent="33" name="NEW_DN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="205" parent="33" name="APP_Auth_CODE">
+        <mandatory>1</mandatory>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="206" parent="34" name="USER_SN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="207" parent="34" name="USER_DN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="208" parent="34" name="USER_CN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="209" parent="34" name="USER_IDENTIFIER">
+        <mandatory>1</mandatory>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="210" parent="34" name="USER_ORG">
+        <mandatory>1</mandatory>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="211" parent="34" name="USER_OU">
+        <mandatory>1</mandatory>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="212" parent="34" name="USER_C">
+        <mandatory>1</mandatory>
+        <data-type>varchar(4)</data-type>
+      </column>
+      <column id="213" parent="34" name="USER_TEL">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="214" parent="34" name="USER_EMAIL">
+        <mandatory>1</mandatory>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="215" parent="34" name="USER_PWD">
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="216" parent="34" name="USER_PRV">
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="217" parent="34" name="USER_CITY">
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="218" parent="34" name="USER_ADDRESS">
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="219" parent="34" name="USER_POSTCODE">
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="220" parent="34" name="USER_TIME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="221" parent="34" name="USER_STATUS">
+        <mandatory>1</mandatory>
+        <data-type>varchar(1)</data-type>
+      </column>
+      <column id="222" parent="34" name="USER_REGTYPE">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="223" parent="34" name="USER_P10DATA">
+        <data-type>varchar(2048)</data-type>
+      </column>
+      <column id="224" parent="34" name="USER_EXTINFO">
+        <data-type>varchar(2048)</data-type>
+      </column>
+      <key id="225" parent="34" name="PRIMARY">
+        <columns>USER_SN</columns>
+        <primary>1</primary>
+      </key>
+      <column id="226" parent="35" name="CERT_SN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="227" parent="35" name="CERT_TYPE">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="228" parent="35" name="USER_SN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="229" parent="35" name="CERT_VALUE">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2048)</data-type>
+      </column>
+      <column id="230" parent="35" name="CERT_VALUE_LEN">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="231" parent="35" name="CERT_REVOKE_REASON">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="232" parent="35" name="CERT_REVOKE_TIME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="233" parent="35" name="USER_CERT_TEMPLATE">
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="234" parent="35" name="PRIMARY">
+        <columns>CERT_SN</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>

@@ -1,0 +1,101 @@
+<!-- 页底 -->
+<div id="footer" class="mt10">
+<div class="box">
+<div class="footer">
+<!-- 友情logo -->
+<div class="links">
+{if $topid==0}
+{loop friendlink('image',0,20) $flink}
+<a href="{$flink[url]}" title="{$flink[name]}"><img src="{$flink[logo]}" /></a>
+{/loop}
+{else}
+{lang(hotkeys)}： {gethotsearch(10)}
+{/if}
+</div>
+<!-- 页底导航 -->
+<div class="about">
+<img src="{$skin_path}/images/foot_logo.gif" />
+{tag_网站页底关于我们等说明}
+{if get('opguestadd')=='1'}<a rel="nofollow" href="{$base_url}/?g=1">{lang(opguestadd)}</a> |{/if}
+<a href="#">TOP</a>
+</div>
+
+<div class="copyright">
+
+<!-- 页底说明 -->
+{get(site_right)} <a title="{get('sitename')}" href="{$base_url}/">{get('sitename')}</a> All Rights Reserved.&nbsp;&nbsp; {if get('site_login')=='1'}{login_js()}{/if}
+<div class="blank5"></div>
+{getcnzzcount()}&nbsp;&nbsp;Powered by <a href="http://www.cmseasy.cn" title="CmsEasy企业网站系统" target="_blank">CmsEasy</a>&nbsp;&nbsp;<a rel="nofollow" href="http://www.miibeian.gov.cn/" rel="nofollow" target="_blank">{get('site_icp')}</a>
+</div>
+<div class="clear"></div>
+</div>
+{if $topid==0}<!-- 热门关键词 -->
+<div class="hot_keys">
+<strong>{lang(hotkeys)}：</strong> {gethotsearch(10)}
+<div class="blank10"></div>
+<!-- 友情链接 -->
+
+<strong>{lang('links')}：</strong>
+{loop friendlink('text',0,20) $flink}
+<a href="{$flink[url]}" target="_blank">{$flink[name]}</a>
+{/loop}
+
+</div>{/if}
+</div>
+</div>
+<script type="text/javascript" src="{$base_url}/js/common.js"></script>
+
+<script type="text/javascript"> 
+// 公告滚动js
+var t=setInterval(myfunc,1000); 
+var oBox=document.getElementById("announ"); 
+function myfunc(){ 
+var o=oBox.firstChild 
+oBox.removeChild(o) 
+oBox.appendChild(o) 
+} 
+oBox.onmouseover=function()
+{
+clearInterval(t)
+} 
+oBox.onmouseout=function()
+{
+t=setInterval(myfunc,2000)//滚动时间，默认2秒
+} 
+</script>
+
+<!-- 在线客服 -->
+{template 'system/servers.html'}
+<!-- 短信 -->
+{template 'system/sms.html'}
+
+
+{if get('share')=='1'}
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=slide&img=6&pos=right&uid=620555" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+		var bds_config = {"bdTop":150};
+		document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?t=" + new Date().getHours();
+</script>
+<!-- Baidu Button END -->
+{/if}
+
+
+<script>
+function checkmail(str)
+{
+var strreg="email";
+var r;
+var strtext=document.all(str).value;
+//strreg=/^w+((-w+)|(.w+))*@[a-za-z0-9]+((.|-)[a-za-z0-9]+)*.[a-za-z0-9]+$/i;
+strreg=/^w+((-w+)|(.w+))*@{1}w+.{1}w{2,4}(.{0,1}w{2}){0,1}/ig;
+r=strtext.search(strreg);
+if(r==-1) {
+alert("邮箱格式错误!");
+document.all(str).focus();
+}
+}
+</script>
+</body>
+</html>

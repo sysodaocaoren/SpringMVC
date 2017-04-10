@@ -1,0 +1,183 @@
+{template 'header.html'}
+
+
+<!-- 页面中部开始 -->
+<div class="clear box">
+
+<!-- 页面左侧开始 -->
+<div class="w_305">
+
+<!-- 新闻中心 -->
+<div class="title mt5 mb20">
+<h3>{tag_左侧栏目一}</h3>
+</div>
+
+<div class="text_pic">
+{tag_左侧图文1条}
+</div>
+
+
+<div class="line"></div>
+
+<ul class="news_list">
+{tag_左侧内容4条}
+</ul>
+
+{tag_左侧绿色栏目按钮}
+
+
+<!-- 文档下载 -->
+<div class="title mt20 mb20">
+<h3>{tag_左侧栏目二}</h3>
+</div>
+<ul class="down_list">
+{tag_左侧内容列表10条}
+</ul>
+
+
+<!-- 订单查询 -->
+<div class="title mt20 mb20">
+<h3><a>{lang(vieworders)}</a>/<span>Order</span></h3>
+</div>
+<div class="order">
+<input class="o_text" name="oid" id="oid" type="text" align="absmiple" value=" {lang(orderid)}… " onfocus="if(this.value==' {lang(orderid)}… ') {this.value=''}" onblur="if(this.value=='') this.value=' {lang(orderid)}… '" style="width:210px;" /> 
+<input type="button" class="o_btn oidbtn" align="absmiple" name='submit' value=" {lang(look)} " onclick="window.location.href='<?php echo url('archive/orders');?>&oid='+document.getElementById('oid').value;" />
+</div>
+
+<!-- 联系我们 -->
+<div class="title mt20 mb20">
+<h3><a>{lang(contactus)}</a>/<span>Contact Us</span></h3>
+</div>
+<ul class="contact_list">
+<li><strong>{lang(address)}：</strong>{get(address)}</li>
+<li><strong>{lang(tel)}：</strong>{get(tel)}</li>
+<li><strong>{lang(fax)}：</strong>{get(fax)}</li>
+<li><strong>{lang(email)}：</strong>{get(email)}</li>
+</ul>
+
+<!-- 邮件订阅 -->
+<div class="title mt20 mb20">
+<h3><a>{lang(mailsubscription)}</a>/<span>Mail</span></h3>
+</div>
+
+<form name="listform" id="listform"  action="<?php echo url('archive/email');?>" method="post">
+<input type="text" name="email" class="o_text" value=" {lang(mailsubscription)} "  onfocus="if(this.value==' {lang(mailsubscription)} ') {this.value=''}" onblur="if(this.value=='') this.value=' {lang(mailsubscription)} '" onchange="checkmail('email')"  style="width:210px;" /> 
+<input type="submit" class="s_btn_a" align="absmiple" name='submit' value=" {lang(submit)} " style="float:right;" />
+
+</form>
+
+
+</div>
+<!-- 左侧结束 -->
+
+
+<!-- 右侧开始 -->
+<div class="w_622">
+<!-- 产品展示开始 -->
+<div class="title mt5 mb20">
+<h3>{tag_右侧栏目一}</h3>
+</div>
+
+<!-- 滚动图片开始 -->
+
+<script type="text/javascript" src="{$skin_path}/js/jquery.bxSlider.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+<!--用于滚动图片-->
+    if($('#scroll a').length > 0)
+	{
+	$('#scroll').bxSlider(
+	{
+		auto: true,
+		displaySlideQty:4,
+		prevText: '',
+		nextText: '',
+		moveSideQty: 1
+	});
+	}
+});
+</script>
+
+
+
+<div class="scroll">
+<ul id="scroll" class="list-view">
+{tag_首页滚动图片}
+</ul>
+</div>
+<!-- 滚动图片结束 -->
+<div class="blank10 clear"></div>
+<!-- 产品展示结束 -->
+
+<!-- 产品分类开始 -->
+<div class="i_type">
+<a class="on">{lang(ContentType)}</a>{loop type() $i $t} <a title="{$t[typename]}" target="_blank" href="{$t[url]}">{$t[typename]}</a> {/loop}
+</div>
+
+<!-- 产品分类结束 -->
+
+<!-- 专题开始 -->{loop special::listdata(1) $special}
+<div class="title mt20 mb20">
+<h3><a href="{$special[url]}" title="{$special[title]}">{lang(contentspecial)}</a>/<span>Special</span></h3>
+</div>
+
+<!-- Flash视频 -->
+<div class="i_video">
+<embed src="{get('flash_url')}" quality="high" width="216" height="176" align="middle" allowScriptAccess="always" allowFullScreen="true" mode="transparent" type="application/x-shockwave-flash"></embed>
+</div>
+
+<!-- 专题内容 -->
+<div class="special">
+<div class="text_pic">
+<a href="{$special[url]}" title="{$special[title]}" class="text_img"><img src="{$special[banner]}" alt="{$arc[stitle]}" width="140" /></a><p><h5 style="margin-bottom:10px;"><a href="{$special[url]}" title="{$special[title]}">{$special[title]}</a></h5>
+{cut(strip_tags($special['description']),290)}</p>
+<a href="{$special[url]}" title="{$special[title]}" class="readme" style="float:right;"></a>
+</div>
+<div class="clear"></div>
+</div>
+{/loop}<!-- 专题结束 -->
+<div class="clear line"></div>
+
+
+<!-- 职位招聘开始 -->
+<div class="i_job">
+<div class="title mt5 mb20">
+<h3>{tag_右侧下方左栏目}</h3>
+</div>
+
+<ul class="news_list">
+{tag_右侧下方左内容4条}
+</ul>
+
+
+</div>
+<!-- 职位招聘结束 -->
+
+<!-- 网站投票开始 -->
+<div class="i_vote">
+<div class="title mt5 mb20">
+<h3><a>{lang(vote)}</a>/<span>Vote</span></h3>
+</div>
+
+
+{ballot(1)}
+
+</script>
+
+
+</div>
+<!-- 网站投票结束 -->
+
+<div class="clear"></div>
+</div>
+<!-- 右侧结束 -->
+
+
+<div class="clear"></div>
+</div>
+<!-- 中部结束 -->
+<div class="clear"></div>
+
+
+{template 'footer.html'}

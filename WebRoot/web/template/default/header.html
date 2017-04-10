@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>{getTitle($archive,$category,$catid,$type)} - Powered by CmsEasy</title>
+<meta name="keywords" content="{getKeywords($archive,$category,$catid,$type)}" />
+<meta name="description" content="{getDescription($archive,$category,$catid,$type)}" />
+<meta name="author" content="CmsEasy Team" />
+<link rel="icon" href="{$base_url}/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="{$base_url}/favicon.ico" type="image/x-icon" />
+<!-- 调用样式表 -->
+<link rel="stylesheet" href="{$skin_path}/base.css" type="text/css" media="all"  />
+<link rel="stylesheet" href="{$skin_path}/reset.css" type="text/css" media="all"  />
+<link rel="stylesheet" href="{$skin_path}/style.css" type="text/css" media="all"  />
+<script type="text/javascript" src="{$skin_path}/js/jquery-1.3.2.min.js"></script>
+<script language="javascript" type="text/javascript">
+function killerrors()
+{
+return true;
+}
+window.onerror = killerrors;
+</script>
+</head>
+ <body>
+
+
+<div class="header">
+
+<span class="subnav">
+<!-- 页头导航 -->
+<span style="float:right;">
+<a title="RSS" href="{$base_url}/index.php?case=archive&act=rss&catid={$catid}" target="_blank">RSS</a>
+{if get('shoppingcart')=='1'}  -  <a rel="nofollow" href="<?php echo url('archive/orders');?>">{lang(shoppingcart)}</a>{/if}
+{if get('mobile_open')=='1'}  -  <a title="{lang(sitewap)}" href="{$base_url}/wap/">{lang(sitewap)}</a>{/if}
+{if get('guestbook_enable')} - <a rel="nofollow" title="{lang(feedback)}" href="{url('guestbook')}" target="_blank">{lang(feedback)}</a>{/if}
+  -  <a id="StranLink" name="StranLink">繁體</a>
+</span>
+<!-- 搜索框 -->
+<div class="search">
+<form name='search' action="<?php echo url('archive/search');?>" onsubmit="search_check();" method="post">
+<input type="text" name="keyword" value="{lang(pleaceinputtext)}" onfocus="if(this.value=='{lang(pleaceinputtext)}') {this.value=''}" onblur="if(this.value=='') this.value='{lang(pleaceinputtext)}'" class="s_text" />
+<input name='submit' type="submit" value="" align="middle" class="s_btn" />
+</form>
+</div>
+</span>
+
+<div class="logo"><a title="{get(sitename)}" href="{$base_url}/"><img src="{get('site_logo')}" alt="{get(sitename)}" width="{get(logo_width)}" /></a></div>
+
+</div>
+
+<!-- 网站导航 -->
+<div class="nav">
+<ul id="nav"> 
+<li class="one{if $topid==0} on{/if}"><a title="{lang(backhome)}" href="{$base_url}/">{lang(homepage)}</a></li>
+{loop categories_nav() $t}
+<li class="one{if isset($topid) && $topid==$t[catid]} on{/if}"><a href="{$t[url]}" title="{$t[catname]}" target="{if config::get('nav_blank')==1} _blank{/if}">{$t[catname]}</a>
+{if count(categories($t[catid]))}<ul>
+{loop categories($t[catid]) $t1}
+<li><a title="{$t1[catname]}" href="{$t1[url]}">{$t1[catname]}</a>
+{if count(categories($t1[catid]))}<ul>{loop categories($t1[catid]) $t2}<span></span>
+<li><a title="{$t2[catname]}" href="{$t2[url]}">{$t2[catname]}</a>
+{if count(categories($t2[catid]))}<ul>{loop categories($t2[catid]) $t3}<span></span>
+<li><a title="{$t3[catname]}" href="{$t3[url]}">{$t3[catname]}</a>
+{if count(categories($t3[catid]))}<ul>{loop categories($t3[catid]) $t4}<span></span>
+<li><a title="{$t4[catname]}" href="{$t4[url]}">{$t4[catname]}</a>
+{if count(categories($t4[catid]))}<ul>{loop categories($t4[catid]) $t5}<span></span>
+<li><a title="{$t5[catname]}" href="{$t5[url]}">{$t5[catname]}</a></li> 
+{/loop}</ul>{/if}
+</li> 
+{/loop}</ul>{/if}
+</li>
+{/loop}</ul>{/if}
+</li>
+{/loop}</ul>{/if}
+</li> 
+{/loop}</ul>{/if}
+</li>{/loop}
+</ul>
+</div>
+<!-- 导航结束 -->
+
+<div class="clear box">
+
+<!-- 公告开始 -->
+<div id="announ">
+{loop announ(5) $an}
+<p><a href="{$an[url]}" title="{$an[title]}">{cut($an[title],15)}</a> [{$an[adddate]}]</p>
+{/loop}
+</div>
+<!-- 公告结束 -->
+
+<!-- 多站切换开始 -->
+<div class="website">
+<a href="sitemap.html" target="_blank">Sitemap</a> | <?php $t=position_p($catid=5);?>
+<a href="{$t.url}" title="{$t['name']}" target="_blank">Contact</a><?php?>
+
+<!-- 多站切换开始 -->
+<select name="website" onchange="javascript:window.open(this.options[this.selectedIndex].value)">
+<option value="default">{lang('websitego')}</option>
+{loop getwebsite() $d}
+<option value="{$d['url']}">{$d[name]}</option>
+{/loop}
+</select>
+<!-- 多站切换结束 -->
+</div>
+</div>
+
+
+<!-- 幻灯开始 -->
+<div class="banner">
+{template 'system/slide.html'}
+</div>
+</div>
+<!-- 幻灯结束 -->

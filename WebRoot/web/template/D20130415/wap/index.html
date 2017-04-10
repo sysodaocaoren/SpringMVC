@@ -1,0 +1,72 @@
+{template 'wap/header.html'}
+<!-- 页面中部开始 -->
+
+<div class="title"><?php $t=position_p($catid=1);?>
+<a href="{$t.url}" title="{$t['name']}">{$t['name']}</a>
+<span><a href="{$t.url}">{lang(more)}</a></span><?php?></div>
+<div class="clear box">
+
+
+<div id="list-view" class="p10">
+<img alt="" src="{$skin_path}/images/i_about.jpg" style="float:left;width:100px;margin:0px 10px 10px 0px"  />
+{tag_公司简介}
+</div>
+<div class="clear"></div>
+</div>
+
+</div>
+
+<div class="title"><?php $t=position_p($catid=2);?>
+<a href="{$t.url}" title="{$t['name']}">{$t['name']}</a>
+<span><a href="{$t.url}">{lang(more)}</a></span><?php?></div>
+<div class="clear box">
+<div class="top_news">
+<h3>{loop archive(2,0,0,'0,0,0',16,'aid',1,false,0) $i $archive}<a title="{$archive[stitle]}" href="{$archive[url]}">{$archive[title]}</a>{/loop}</h3>
+{loop archive(2,0,0,'0,0,0',10,'aid',2,false,0) $i $archive}
+[<a title="{$archive[stitle]}" href="{$archive[url]}">{$archive[title]}</a>]
+{/loop}
+</div>
+<ul class="news_list p10">
+{loop archive(4,0,0,'0,0,0',16,'aid',5,false,0) $i $archive}
+<li><a title="{$archive[stitle]}" href="{$archive[url]}">{$archive[title]}</a></li>
+{/loop}
+</ul>
+</div>
+
+<div class="title"><?php $t=position_p($catid=6);?>
+<a href="{$t.url}" title="{$t['name']}">{$t['name']}</a>
+<span><a href="{$t.url}">{lang(more)}</a></span><?php?></div>
+<div class="clear box">
+<div class="p10">
+<ul id="list-view">
+<li>
+
+{loop archive(3,0,0,'0,0,0',16,'aid',4,true,0) $i $archive}
+{if $i%2==0  &&   $i> 1}
+<div class="blank10 clear"></div>
+</li>
+<li>
+{else}{/if}
+
+<div class="list-view"><div class="img-wrap"><a title="{$archive['stitle']}" target="_blank" href="{$archive[url]}"><img alt="{$archive['stitle']}" src="{$archive['thumb']}" onerror='this.src="{$base_url}/{config::get('onerror_pic')}"' /></a></div>
+<h5><a title="{$archive['stitle']}" target="_blank" href="{$archive[url]}">{$archive['title']}</a></h5>{if $archive['attr2']}{if $archive['attr2']==$archive['oldprice']}{lang(price)}：<span>{$archive['attr2']}</span>{lang(unit)}{else}{lang(list_price)}：<span>{$archive['oldprice']}</span>{lang(unit)} {lang(discount)}：<span>{$archive['attr2']}</span>{lang(unit)}{/if}{/if}
+</div>
+{/loop}
+<div class="clear"></div>
+</li>
+</ul>
+<div class="clear"></div>
+</div>
+</div>
+
+
+<div class="title"><a>{lang(mailsubscription)}</a></div>
+<div class="box">
+<div class="p20">
+<form name="listform" id="listform"  action="<?php echo url('archive/email');?>" method="post">
+<input type="text" name="email" size="25" value="" > <input type="submit" value=" {lang(mailsubscription)} " name="submit" class="mailbtn" />
+</form>
+</div>
+</div>
+
+{template 'wap/footer.html'}

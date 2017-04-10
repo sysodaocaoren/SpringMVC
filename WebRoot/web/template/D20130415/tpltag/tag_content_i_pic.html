@@ -1,0 +1,5 @@
+{loop archive($_catid,$_typeid,$_spid,$_area,$_length,$_ordertype,$_limit,$_image,$_attr1) $arc}
+<div class="list-view"><div class="img-wrap"><a title="{$arc['stitle']}" target="_blank" href="{$arc['url']}"><img alt="{$arc['stitle']}" src="{$arc['thumb']}" onerror='this.src="{$base_url}/{config::get('onerror_pic')}"' /></a></div>
+<h5><a title="{$arc['stitle']}" target="_blank" href="{$arc['url']}">{$arc['title']}</a></h5>{if $arc['attr2']}{if $arc['attr2']==$arc['oldprice']}{lang(price)}：<span>{$arc['attr2']}</span>{lang(unit)}{else}{lang(list_price)}：<span>{$arc['oldprice']}</span>{lang(unit)} {lang(discount)}：<span>{$arc['attr2']}</span>{lang(unit)}{/if}{/if}
+</div>
+{/loop}
