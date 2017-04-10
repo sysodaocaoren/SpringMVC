@@ -1,0 +1,46 @@
+<div class="position">
+	<a title="{get('sitename')}" href="{$base_url}/">{get('sitename')}</a>
+            	<?php
+                if(front::get('case') == 'area'){
+                ?>
+                {area::getpositonhtml(get('province_id'),get('city_id'),get('section_id'),get('id'))}
+				<?php
+                }elseif($topid==0){
+                ?>
+				<?php
+                }elseif(front::get('case') == 'announ'){
+                ?>
+				<a title="{lang(siteannoun)}" href="#">{lang(siteannoun)}</a>
+				<?php
+                }elseif(front::get('case') == 'guestbook'){
+                ?>
+				<a title="{lang('guestbook')}" href="#">{lang('guestbook')}</a>
+				<?php
+                }elseif(front::get('case') == 'comment'){
+                ?>
+				<a title="{$t['name']}" href="{$t.url}">{lang('commentlist')}</a>
+                <?php
+                }elseif(front::get('case') == 'type'){
+                ?>
+                {type::getpositionhtml($type['typeid'])}
+                <?php
+                }elseif(front::get('case') == 'special'){
+                ?>
+                <a title="{$special[title]}" href="#">{$special[title]}</a>
+                <?php
+                }elseif(front::get('case') == 'tag'){
+                ?>
+                <a title="{$tag}" href="#">{$tag}</a>
+<?php
+                }elseif(front::get('case') == 'mailsubscription'){
+                ?>
+				<a href="#" title="{lang(mailsubscription)}">{lang(mailsubscription)}</a>
+                <?php
+                }else{
+                ?>
+            	{loop position($catid) $t}<a title="{$t['name']}" href="{$t.url}">{$t['name']}</a>
+				{/loop}
+                <?php
+                }
+                ?>
+</div>

@@ -1,0 +1,58 @@
+{template 'header.html'}
+{template 'position.html'}
+<div class="box box2">
+<div class="left">
+{template 'left.html'}
+</div>
+<div class="right">
+<div class="title20">
+{$special[title]}
+</div>
+<div id="content">
+
+<div class="blank30"></div>
+<!-- 专题图片 -->
+<img src="{$special[banner]}" style="float:left;margin:0px 20px 20px 0px;" />
+<!-- 专题介绍 -->
+{$special[description]}
+
+<div class="line_2"></div><div class="blank30"></div>
+
+<!-- 内容列表开始 -->
+<ul class="news_list">
+{loop $archives $i $sp}
+<li><span class="date">{$sp[adddate]}</span><a title="{$sp[title]}" target="_blank" href="{$sp[url]}">{$sp[title]}</a></li>
+{/loop}
+</ul>
+<!-- 内容列表结束 -->
+
+<div class="blank30"></div>
+
+<!-- 列表分页开始 -->
+{if isset($pages)}
+{special::pagination($tag)}
+{/if}
+<!-- 列表分页结束 -->
+
+<div class="blank30"></div>
+<a title="{lang(gotop)}" href="#" class="clear floatright"><img alt="{lang(gotop)}" src="{$skin_url}/images/gotop.gif"></a>
+<div class="blank30"></div>
+<div class="clear"></div>
+</div>
+</div>
+<!-- 右侧结束 -->
+
+<div class="c_bottom"></div>
+<div class="clear"></div>
+</div>
+<!-- 中部结束 -->
+
+<script defer>
+var obj = document.getElementById("content").getElementsByTagName("img");
+for(i=0;i<obj.length;i++){
+	if(obj[i].width>650){
+		obj[i].width = 650;
+	}
+}
+</script>
+{template 'footer.html'}

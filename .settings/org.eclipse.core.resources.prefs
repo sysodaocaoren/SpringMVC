@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//WebRoot/WEB-INF/log4j.properties=UTF-8
+encoding//WebRoot/WEB-INF/tld/page.vm=UTF-8
+encoding//WebRoot/page/NewFile.jsp=UTF-8
+encoding//WebRoot/page/testpage/testBootstrap.jsp=UTF-8
+encoding//src/com/onlineMarket/business/util/page/CookieUtils.java=UTF-8
+encoding//src/com/onlineMarket/business/util/page/PageUtil.java=UTF-8
+encoding//src/com/onlineMarket/business/util/page/impl/BasePageManager.java=UTF-8
+encoding//src/com/test/ThreadPool.java=UTF-8
+encoding//src/interceptor/AuthorityInterceptor.java=UTF-8
+encoding/<project>=GBK
