@@ -24,11 +24,11 @@ public class TestArrayList {
 		//原理是减少了在插入的时候因为容量不够重新创建数组的过程
 		list3.ensureCapacity(50);
 		list3=(ArrayList<Object>) list2.clone();
-		
+		System.out.println(list3.contains("test2"));
 		list2.removeAll(list1);
 		//System.out.println(list3.toString());
 		//testEnsurecapacity();---测试设置容量和不设置容量效率的比较
-		queryList();
+		//queryList();
 	}
 	
 	/**
