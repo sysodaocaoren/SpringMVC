@@ -1,17 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=GB18030"
-	pageEncoding="GB18030"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html >
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=GB18030">
+<base href="<%=basePath%>">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>home</title>
 </head>
 <body>
-	<h2>登陆</h2>
-    <form action="/login.do" method="post">
+	<h2>鐧婚檰</h2>
+    <form action="login.do" method="post">
          username:<input type="text" value="${username }" name="username"/></br>
          password:<input type="text" value="${password }" name="password"/></br>
-         <input type="submit" value="提交"/>
+         <input type="submit" value="鎻愪氦"/>
     </form>
 	<p>
 </body>

@@ -56,21 +56,17 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("login")
-	public ModelAndView login(String username, String password,
-			@CookieValue("age") String age) {
+	public ModelAndView login(HttpServletRequest request,
+			 User user) {
 		// 验证传递过来的参数是否正确，否则返回到登陆页面。
-		if (this.checkParams(new String[] { username, password })) {
-			// 指定要返回的页面为succ.jsp
-			ModelAndView mav = new ModelAndView("succ");
-			// 将参数返回给页面
-			mav.addObject("username", username);
-			mav.addObject("password", password);
-			System.out.println(age);
-			System.out
-					.println("username=" + username + " password=" + password);
-			return mav;
-		}
-		return new ModelAndView("testtag");
+		// 指定要返回的页面为succ.jsp
+		ModelAndView mav = new ModelAndView("succ");
+		// 将参数返回给页面
+		mav.addObject("username", 111);
+		mav.addObject("password", 222);
+		System.out.println(12);
+		System.out.println("username=" + 11 + " password=" + 222);
+		return mav;
 	}
 
 	/***
