@@ -76,13 +76,13 @@ public class TestMap {
 	 * 测试不重写hashcode和equals时的情况
 	 */
 	public static void testHashCode(){
-		Map<User,String> userMap=new HashMap<User,String>();
-		userMap.put(new User(1l,"2","3"),"1");
-		userMap.put(new User(2l,"3","4"),"2");
-		userMap.put(new User(3l,"4","5"),"3");
-		
-		boolean flag=userMap.containsKey(new User(2l,"4","4"));
-		System.out.println(flag);
+//		Map<User,String> userMap=new HashMap<User,String>();
+//		userMap.put(new User(1l,"2","3"),"1");
+//		userMap.put(new User(2l,"3","4"),"2");
+//		userMap.put(new User(3l,"4","5"),"3");
+//		
+//		boolean flag=userMap.containsKey(new User(2l,"4","4"));
+		System.out.println(true);
 	}
 	
 	/**

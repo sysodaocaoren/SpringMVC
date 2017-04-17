@@ -1,11 +1,18 @@
 package com.wg.test;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.wg.bean.User;
 import com.wg.service.UserService;
 
@@ -15,10 +22,21 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping("regist")
-	public ModelAndView regist(HttpServletRequest request, User user) {
+	@RequestMapping("regist/{id}")
+	public ModelAndView regist(@PathVariable("id") String id,
+								@RequestParam("id") String paramsId,
+								@RequestHeader ( "Host" ) String hostAddr,
+								//@CookieValue("age") String age,
+								HttpServletRequest request,HttpServletResponse response, User user) {
 		try {
-			userService.saveUser(user);
+			//userService.saveUser(user);
+			Cookie cookie=new Cookie("age","123");
+			response.addCookie(cookie);
+			System.out.println(id);
+			System.out.println(paramsId);
+			System.out.println(hostAddr);
+			System.out.println(user.getUsername());
+			//System.out.println("age="+age);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -38,7 +56,8 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("login")
-	public ModelAndView login(String username, String password) {
+	public ModelAndView login(String username, String password,
+			@CookieValue("age") String age) {
 		// 验证传递过来的参数是否正确，否则返回到登陆页面。
 		if (this.checkParams(new String[] { username, password })) {
 			// 指定要返回的页面为succ.jsp
@@ -46,6 +65,7 @@ public class UserController {
 			// 将参数返回给页面
 			mav.addObject("username", username);
 			mav.addObject("password", password);
+			System.out.println(age);
 			System.out
 					.println("username=" + username + " password=" + password);
 			return mav;

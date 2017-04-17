@@ -4,7 +4,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
 <head>
 <base href="<%=basePath%>">
@@ -12,8 +12,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="regist.do" method="post">
-		username:<input type="text" name="username" />
+	<form action="regist/123.do" method="post">
+	        ID      £º<input type="text" name="id" />
+	    <p>
+		    username:<input type="text" name="username" />
 		<p>
 			password:<input type="password" name="password" />
 		<p>

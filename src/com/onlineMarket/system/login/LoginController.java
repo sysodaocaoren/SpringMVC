@@ -13,7 +13,7 @@ public class LoginController {
 	 */
 	@RequestMapping("tologin2")
 	public ModelAndView tologin(){
-		return new ModelAndView ("005/index");
+		return new ModelAndView ("login");
 	}
 	/**
 	 * µÇÂ½³É¹¦£¬Ìø×ª

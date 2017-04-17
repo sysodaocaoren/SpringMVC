@@ -1,5 +1,6 @@
 package com.wg.bean;
 
+
 public class User {
 	int number;
 	private Long id;
@@ -31,7 +32,7 @@ public class User {
 	}
     
 	
-	public User(Long id, String username, String password) {
+	public User() {
 		super();
 		this.id = id;
 		this.username = username;
@@ -50,6 +51,6 @@ public class User {
 	return (o instanceof User) && (number==((User)o).number)
 			&&(id==((User)o).id)&&(username==((User)o).username)
 			&&(password==((User)o).password); 
-	} 
+	}
 	
 }
