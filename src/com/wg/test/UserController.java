@@ -57,14 +57,14 @@ public class UserController {
 	 */
 	@RequestMapping("login")
 	public ModelAndView login(HttpServletRequest request,
-			 User user) {
+			 User user,@CookieValue(value="age",defaultValue="") String age) {
 		// 验证传递过来的参数是否正确，否则返回到登陆页面。
 		// 指定要返回的页面为succ.jsp
 		ModelAndView mav = new ModelAndView("succ");
 		// 将参数返回给页面
 		mav.addObject("username", 111);
 		mav.addObject("password", 222);
-		System.out.println(12);
+		System.out.println(age);
 		System.out.println("username=" + 11 + " password=" + 222);
 		return mav;
 	}

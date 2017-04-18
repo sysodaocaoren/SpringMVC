@@ -1,9 +1,12 @@
 package com.wg.test;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * 测试modelAttribute标签
@@ -23,10 +26,11 @@ public class Home11Controller {
 	 * 
 	 * @return
 	 */
-	@RequestMapping("hello111")
-	public void index(HttpRequest request,@ModelAttribute("getString") String str) {
+	@RequestMapping("testModelattribute")
+	public ModelAndView testModelattribute(HttpServletRequest request,@ModelAttribute("getString") String str) {
 		// 创建模型跟视图，用于渲染页面。并且指定要返回的页面为home页面
 		System.out.println(str);
+		return new ModelAndView("succ");
 	}
 	
 	
