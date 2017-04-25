@@ -29,7 +29,7 @@ public class UserController {
 								//@CookieValue("age") String age,
 								HttpServletRequest request,HttpServletResponse response, User user) {
 		try {
-			//userService.saveUser(user);
+			userService.saveUser(user);
 			Cookie cookie=new Cookie("age","123");
 			response.addCookie(cookie);
 			System.out.println(id);

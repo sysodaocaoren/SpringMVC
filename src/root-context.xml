@@ -15,9 +15,9 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/first?characterEncoding=utf-8" />
+		<property name="url" value="jdbc:mysql://localhost:3306/springmvc?characterEncoding=utf-8" />
 		<property name="username" value="root" />
-		<property name="password" value="zhuyumeng" />
+		<property name="password" value="111111" />
 		<property name="maxActive" value="5" />
 		<property name="maxIdle" value="3" />
 		<property name="maxWait" value="1000" />
@@ -27,9 +27,9 @@
 	</bean>
 	<bean id="dataSource1" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 	   <property name="driverClass" value="com.mysql.jdbc.Driver" />
-	   <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/first?characterEncoding=utf-8" />
+	   <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/springmvc?characterEncoding=utf-8" />
 	   <property name="user" value="root" />
-	   <property name="password" value="zhuyumeng" />
+	   <property name="password" value="111111" />
 	   <property name="minPoolSize" value="1" />
 	   <property name="maxPoolSize" value="5"/>  
 	   <property name="initialPoolSize" value="5"/>
@@ -47,7 +47,7 @@
 
 	<!-- 创建SqlSessionFactory，同时指定数据源 -->
 	<bean id="sqlSessionFactory1" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource1" />
+		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:mybatis-config1.xml"></property>
 	</bean>
 	<!-- 创建SqlSessionFactory，同时指定数据源1 -->
