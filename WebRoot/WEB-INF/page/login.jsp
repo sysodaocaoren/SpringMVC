@@ -8,12 +8,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<%@include file="/common/inc.jsp"%>
 <title>我在WEB-INF下面</title>
 </head>
 <script type="text/javascript">
    function showIframe(){
-	   var iframe=document.getElementById("iframe2");
-	   iframe.src="forward.do?page=succ";
+	   $("#iframe2").attr("src","forward.do?page=succ");
    }
 </script>
 <body>
