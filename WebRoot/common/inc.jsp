@@ -3,4 +3,5 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
 <script type="text/javascript" src="${ctx}/js/jquery-1.9.1.js"></script>
-
+<script type="text/javascript" src="${ctx}/js/jquery-ui.custom.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery-ui.custom.min.js"></script>

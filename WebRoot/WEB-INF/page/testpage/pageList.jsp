@@ -9,6 +9,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<script type="text/javascript">
+    function test111(id){
+    	alert(id);
+    }
+</script>
 </head>
 <body>
 	<form id="pageTest" action="listPageTest.do" method="post">
@@ -22,7 +27,7 @@
 				<td>telPhone</td>
 			</tr>
 			<c:forEach items="${testList}" var="test">
-				<tr>
+				<tr onclick="test111('${test.id}')">
 				<td>${test.id}</td>
 				<td>${test.name}</td>
 				<td>${test.hobby}</td>
