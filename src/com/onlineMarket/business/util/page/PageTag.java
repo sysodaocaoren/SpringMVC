@@ -52,13 +52,16 @@ public class PageTag extends TagSupport {
 
 	public int doStartTag() throws JspException {
 		try {
+			//声明引擎
 			VelocityEngine ve = new VelocityEngine();
+			//给引擎加参数  路径，传入传出字符集
 			Properties properties = new Properties();
-
 			properties.put("file.resource.loader.path", this.pageContext.getRequest().getRealPath("") + "/WEB-INF/tld/");
 			properties.put("input.encoding", "UTF-8");
 			properties.put("output.encoding", "UTF-8");
+			//初始化引擎
 			ve.init(properties);
+			//传递参数
 			VelocityContext vContext = new VelocityContext();
 			vContext.put("page", this.page);
 			vContext.put("form", this.form);

@@ -5,3 +5,6 @@
 <script type="text/javascript" src="${ctx}/js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="${ctx}/js/jquery-ui.custom.js"></script>
 <script type="text/javascript" src="${ctx}/js/jquery-ui.custom.min.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="css/jquery-ui.css"  />

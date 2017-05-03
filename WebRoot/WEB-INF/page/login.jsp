@@ -5,6 +5,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <%@ taglib uri="/WEB-INF/tld/testName.tld" prefix="zym"%>  
 <%@ taglib tagdir="/WEB-INF/tags/" prefix="nameTest"%>  
+<%@taglib uri="/WEB-INF/tld/testVeloCity.tld" prefix="tvc"%>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	   $("#testDialog").dialog({
 		   autoOpen: false,
 		   width: 600,
+		   modal:true,
 		   buttons: {
 			   "Ok": function () {
 		           $(this).dialog("close");
@@ -65,6 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<zym:zym nameTest="naonao"></zym:zym>
 		
 		<nameTest:nameTest name="朱玉猛"></nameTest:nameTest>		
+		<tvc:velocity name="zhuyumeng success"></tvc:velocity>
 	</form>
 	<!-- 弹窗1：先声明一个div，写上自定义的id和要弹出窗口的title -->
 	<div id="testDialog" title="测试页面">
