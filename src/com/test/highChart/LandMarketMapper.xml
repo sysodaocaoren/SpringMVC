@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecode.land.persistence.deskTop.LandMarketMapper">
+	<select id="querytable" resultType="LandMarket" parameterType="LandMarket">
+		SELECT
+			dt.name AS landUse,
+			NVL(count(ct.id),0) AS landCount,
+			NVL(sum(ct.sellarea),0) AS landArea,
+			NVL(sum(ct.contractmoney)/100000000,0) AS contractMoney
+		from contract ct
+		LEFT JOIN dict dt on (dt.id=ct.landtypeid)
+		WHERE 
+			ct.landtypeid IN ('00000000000000000000000000000004','00000000000000000000000000000003') 
+		AND to_char(ct.datesigning,'YYYY')=#{year}
+		AND ct.deleteflag='F'
+		GROUP BY dt.name 
+	</select>
+	
+	<select id="queryPie" parameterType="LandMarket" resultType="LandMarket">
+	 SELECT 
+	     dt.name AS landUse,
+	     SUM(ct.payments) AS landCount,
+	     SUM(ct.sellarea) AS landArea,
+	     SUM(ct.contractmoney)/100000000 AS contractMoney
+	     
+     FROM contract ct 
+     LEFT JOIN dict dt ON (ct.landtypeid=dt.id) 
+     WHERE SUBSTR(to_char(ct.datesigning,'yyyy-mm-dd'),1,4) =#{year}
+     AND ct.landtypeid IN ('00000000000000000000000000000004','00000000000000000000000000000003')
+     AND ct.deleteflag='F'
+     GROUP BY dt.name
+	</select>
+	<select id="queryLeftTop" parameterType="LandMarket" resultType="LandMarket"> 
+		SELECT #{year} AS year,
+	   dt.name as landUse,
+	   count(ct.id) AS landCount,
+	   SUM(ct.sellarea) AS landArea,
+	   SUM(ct.contractmoney) / 100000000 AS contractMoney
+	FROM contract ct
+	inner join dict dt on dt.id=ct.landtypeid
+	WHERE TO_CHAR(ct.datesigning, 'yyyy') = #{year}
+	AND ct.landtypeid = #{landTypeId}
+	AND ct.deleteflag = 'F'
+	GROUP BY dt.name
+	</select>
+	<select id="loadRightTop" parameterType="LandMarket" resultType="LandMarket">
+		select dt.name as landUse, 
+       sum(ct.payments) as landCount,
+       sum(ct.contractmoney) / 100000000 as contractMoney,
+       sum(ct.sellarea) as landArea
+	  from contract ct
+	  inner join dict dt on ct.landtypeid=dt.id
+		<where>
+			<if test="quarter==1">
+				to_char(ct.datesigning,'mm') &gt; 0 and to_char(ct.datesigning,'mm') &lt; 4
+			</if>
+			<if test="quarter==2">
+				to_char(ct.datesigning,'mm') &gt; 3 and to_char(ct.datesigning,'mm') &lt; 7
+			</if>
+			<if test="quarter==3">
+				to_char(ct.datesigning,'mm') &gt; 6 and to_char(ct.datesigning,'mm') &lt; 10
+			</if>
+			<if test="quarter==4">
+				to_char(ct.datesigning,'mm') &gt; 9 and to_char(ct.datesigning,'mm') &lt; 13
+			</if>
+			and to_char(ct.datesigning,'yyyy')=#{year}
+			AND ct.landtypeid=#{landTypeId}
+			and ct.deleteflag='F' group by dt.name
+		</where> 
+	</select>
+	<select id="loadButtom" parameterType="LandMarket"  resultType="LandMarket">
+		select dt.name as landUse,
+      cn.name as curmainName,
+      sum(ct.sellarea) as landArea,
+      sum (ct.contractmoney)/100000000 as contractMoney,
+      sum (ct.payments) as landCount
+    from contract ct 
+    left join curmain cn on (ct.curmain=cn.id)
+    left join dict dt on dt.id=ct.landtypeid
+    where 
+    to_char(ct.datesigning,'yyyy')=#{year}
+    and ct.deleteflag='F'
+    AND ct.landtypeid=#{landTypeId}
+     group by cn.name,dt.name
+	</select>
+	<select id="queryGY" parameterType="LandMarket" resultType="LandUsion">
+		 SELECT 
+	       dt.name AS landType,
+	       landuser.name AS landUser,
+	       SUM(ct.payments) AS ulandCount,
+	       SUM(ct.sellarea) AS ulandArea,
+	       SUM(ct.contractmoney)/100000000 AS ucontractMoney
+     	FROM contract ct 
+	     LEFT JOIN dict dt ON (ct.landtypeid=dt.id) 
+	     LEFT JOIN dict landuser on (landuser.id=ct.landuseid)
+     	WHERE SUBSTR(to_char(ct.datesigning,'yyyy-mm-dd'),1,4) =#{year}
+     	AND ct.landtypeid IN ('00000000000000000000000000000003')
+     	AND ct.deleteflag='F'
+     	AND  (landuser.name LIKE '%仓储用地%' or landuser.name LIKE '%工业用地%')
+     	GROUP BY landuser.name,dt.name
+	</select>
+	
+	<select id="queryJY" parameterType="LandMarket" resultType="LandUsion">
+	 SELECT 
+	       dt.name AS landType,  
+	       nnm.name as landUser, 
+	       SUM(ct.payments) AS ulandCount,
+	       SUM(ct.sellarea) AS ulandArea,
+	       SUM(ct.contractmoney)/100000000 AS ucontractMoney
+     FROM contract ct 
+   	 LEFT JOIN dict dt ON (ct.landtypeid=dt.id) 
+     LEFT JOIN dict landuser on (landuser.id=ct.landuseid)
+     LEFT JOIN (
+      select dct.id as id,dct.name as name from dict dct where dct.id in('da2937c060ac4c24990e4cebf8093ab1', '8847bfdc3704468abe1deb7c30c6fd69', '15ebb9047f6d413c9ff3bb9e7008d98b')
+      )nnm on landuser.parentid=nnm.id
+     WHERE SUBSTR(to_char(ct.datesigning,'yyyy-mm-dd'),1,4) =#{year}
+     AND ct.landtypeid IN ('00000000000000000000000000000004')
+     AND ct.deleteflag='F'
+     GROUP BY dt.name,nnm.name
+	</select>
+</mapper>

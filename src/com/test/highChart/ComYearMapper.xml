@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecode.land.persistence.deskTop.ComYearMapper">
+	<!-- 那年份查询的表格 -->
+	<select id="queryTable" parameterType="String" resultType="ComYearTable">
+		SELECT 
+			#{year} as year,
+			NVL(SUM (ntdz.money)/100000000,0)  as totalIncomeMoney,
+			NVL(SUM (cos.money)/100000000,0)  as backMoney,
+			NVL(SUM (leds.money)/100000000,0)  as guessMoney
+		FROM contract ct
+			LEFT JOIN curmain cn on (ct.curmain=cn.id)
+	     	LEFT JOIN LANDUNITINFOR unitsInfo  on ct.UNITSINFORID=unitsInfo.ID
+	     	LEFT JOIN (SELECT 
+	     					nt.contractid as nid,sum(nt.money) as money 
+	     				FROM
+	                 		 Notpayticket nt  
+	                 	LEFT JOIN paymenttype pe on pe.id=nt.PAYMENTTYPEID
+	                 	WHERE nt.operadate is not null and pe.code='01' AND  SUBSTR(to_char(nt.operadate,'yyyy-mm-dd'),1,4) =#{year}  group by nt.contractid) ntdz 
+	    	ON (ntdz.nid=ct.id)
+	     	left join ( select nt.contractid as nid,sum(nt.money) as money from
+	                  Notpayticket nt  LEFT JOIN paymenttype pe on pe.id=nt.PAYMENTTYPEID where nt.operadate is not null and pe.code='02' AND  SUBSTR(to_char(nt.operadate,'yyyy-mm-dd'),1,4) =#{year}  group by nt.contractid) ntzn 
+	    	ON (ntzn.nid=ct.id)
+	    	LEFT JOIN ( select nt.contractid as nid,sum(nt.money) as money from
+	                  Notpayticket nt  LEFT JOIN paymenttype pe on pe.id=nt.PAYMENTTYPEID where nt.operadate is not null and pe.code='03' AND  SUBSTR(to_char(nt.operadate,'yyyy-mm-dd'),1,4) =#{year}  group by nt.contractid) ntlx 
+	     	ON (ntlx.nid=ct.id)
+	    	LEFT JOIN (SELECT cc.contractid as CcontractId, SUM(co.money) as money, SUM(co.sdmoney) as sdmoney 
+							FROM  contractcostpro co  LEFT JOIN contractcost cc ON (cc.id=co.CONTRACTCOSTID) WHERE to_char(cc.sdtime,'yyyy')=#{year} GROUP BY  cc.contractid )cos ON ct.id = cos.CcontractId
+	    	LEFT JOIN (SELECT  nt.contractid as id, sum(nt.money) as money FROM notpayticket nt 
+						WHERE  nt.operadate is not null  AND  SUBSTR(to_char(nt.operadate,'yyyy-mm-dd'),1,4) =#{year}  GROUP BY nt.contractid) nto ON (nto.id=ct.id)
+	        LEFT JOIN (select led.contract_id as lctd,sum(led.allocation_money) as money from land_allocation_detailed led where led.laf_id in (select id from land_allocation_fund ld where to_char(ld.check_date,'yyyy')=#{year}) group by led.contract_id) leds on (leds.lctd=ct.id)
+		WHERE 
+		 ct.landtypeid in ('00000000000000000000000000000004','00000000000000000000000000000003')
+		AND ct.deleteflag='F'
+		GROUP BY 
+			#{year}
+	</select>
+	
+	<select id="queryContract" resultType="ComYearTable" parameterType="String">
+		 SELECT 
+		     to_char(ct.datesigning,'yyyy') as year, 
+	      	 NVL(SUM(ct.contractmoney)/100000000 ,0) as totalContractMoney,
+	      	 count(ct.id) as landCount
+       	 FROM contract ct 
+         WHERE 
+         	ct.landtypeid in ('00000000000000000000000000000004','00000000000000000000000000000003')
+         AND ct.deleteflag='F'
+         AND  to_char(ct.datesigning,'yyyy')=#{year} 
+         group by to_char(ct.datesigning,'yyyy')
+	</select>
+	<!-- 地王查询 -->
+	<select id="loadSearchLandKing" parameterType="ComYearTable" resultType="Contract">
+		select cy.unitsname as landLocation,
+       cy.inforname as inforName,
+       cy.contractmoney as contractMoney,
+       cy.sellarea as sellArea,
+       cy.unitprice as unitPrice,
+       cy.trafRatio as trafRatio,
+       cy.datesigning,
+       cy.ro
+  from (select t1.unitsname,
+               t2.inforname,
+               t.contractmoney/100000000 as contractmoney,
+               t.datesigning,
+               t.sellarea,
+               t.unitprice,
+               nvl((t.contractmoney-t.startprice)/ t.startprice,0) as trafRatio,
+               rownum as ro
+          from contract t
+         inner join landunitinfor t1
+            on t.unitsinforid = t1.id
+         inner join blockinfor t2
+            on t2.id = t.blockinforid
+         where t.landtypeid = '00000000000000000000000000000004'
+           and to_char(t.datesigning,'yyyy')=#{year}
+           and t.deleteflag = 'F'
+         order by ${condition} desc) cy where cy.ro <![CDATA[<]]>6
+	</select>
+	<!-- 钻取 -->
+	 <select id="viewlandCount" parameterType="ComYearTable" resultType="ComYearZQ">
+	 	SELECT 
+	 	  #{year} as year,
+		  ct.contractnum AS contractNum,
+		  ct.datesigning AS datesining,
+		  ct.contractmoney AS contractMoney,
+		  cn.name  AS cormainName,
+		  unitsInfo.Unitsname AS landUserName,
+		  ntdz.money AS DZmoney,
+		  ntzn.money AS ZNJmoney,
+		  ntlx.money AS LXmoney,
+		  cos.money AS backMoney,
+		  ntdz.money AS incomeMoney,
+		  leds.money AS allocationMoney
+		FROM contract ct
+     	LEFT JOIN curmain cn on (ct.curmain=cn.id)
+     	LEFT JOIN LANDUNITINFOR unitsInfo  on ct.UNITSINFORID=unitsInfo.ID
+     	LEFT JOIN (SELECT 
+     					nt.contractid as nid,sum(nt.money) as money 
+     				FROM
+                 		 Notpayticket nt  
+                 	LEFT JOIN paymenttype pe on pe.id=nt.PAYMENTTYPEID
+                 	WHERE nt.operadate is not null and pe.code='01' AND  SUBSTR(to_char(nt.operadate,'yyyy-mm-dd'),1,4) =#{year}  group by nt.contractid) ntdz 
+    	ON (ntdz.nid=ct.id)
+     	left join ( select nt.contractid as nid,sum(nt.money) as money from
+                  Notpayticket nt  LEFT JOIN paymenttype pe on pe.id=nt.PAYMENTTYPEID where nt.operadate is not null and pe.code='02' AND  SUBSTR(to_char(nt.operadate,'yyyy-mm-dd'),1,4) =#{year}  group by nt.contractid) ntzn 
+    	ON (ntzn.nid=ct.id)
+    	LEFT JOIN ( select nt.contractid as nid,sum(nt.money) as money from
+                  Notpayticket nt  LEFT JOIN paymenttype pe on pe.id=nt.PAYMENTTYPEID where nt.operadate is not null and pe.code='03' AND  SUBSTR(to_char(nt.operadate,'yyyy-mm-dd'),1,4) =#{year}  group by nt.contractid) ntlx 
+     	ON (ntlx.nid=ct.id)
+    	LEFT JOIN (SELECT cc.contractid as CcontractId, SUM(co.money) as money, SUM(co.sdmoney) as sdmoney 
+						FROM  contractcostpro co  LEFT JOIN contractcost cc ON (cc.id=co.CONTRACTCOSTID) WHERE to_char(cc.sdtime,'yyyy')=#{year} GROUP BY  cc.contractid )cos ON ct.id = cos.CcontractId
+    	LEFT JOIN (SELECT  nt.contractid as id, sum(nt.money) as money FROM notpayticket nt 
+					WHERE  nt.operadate is not null  AND  SUBSTR(to_char(nt.operadate,'yyyy-mm-dd'),1,4) =#{year}  GROUP BY nt.contractid) nto ON (nto.id=ct.id)
+        LEFT JOIN (select led.contract_id as lctd,sum(led.allocation_money) as money from land_allocation_detailed led where led.laf_id in (select id from land_allocation_fund ld where to_char(ld.check_date,'yyyy')=#{year}) group by led.contract_id) leds on (leds.lctd=ct.id)
+    
+        <where>
+        	 and ct.deleteflag='F' 
+        	 <if test="ifYear!=null and ifYear!=''">
+        	 	<if test="ifYear==1"><!-- 到账金额不为空 -->
+        	 	 and ntdz.money is not null
+        	 	</if>
+        	 	<if test="ifYear==2"><!-- 已返成本不为空 -->
+        	 	 and cos.money is not null
+        	 	</if>
+        	 	<if test="ifYear==3"><!-- 分配金额不为空 -->
+        	 	  and  leds.money is not null
+        	 	</if>
+        	 </if>
+        	 <if test="ifYear==null or ifYear==''">
+        	 	and  substr(to_char(ct.datesigning,'yyyy-mm-dd'),1,4)=#{year}
+        	 </if>
+        	AND ct.landtypeid in ('00000000000000000000000000000004','00000000000000000000000000000003')
+        	<if test="contractNum!=null and contractNum!=''">
+        		 AND ct.contractnum like '%'||#{contractNum}||'%'
+        	</if>
+        </where>
+          
+        order by cn.name,ct.datesigning desc
+	 </select>
+	 <select id="loadPlan" parameterType="ComYearTable" resultType="ComYearTable">
+	 	SELECT 
+				cn.name as curmainName,
+				insm.money/insmtt.money*100 as ratio,
+				insm.money AS finishMoney,
+       			 insmtt.money AS totalMoney
+		FROM contract ct
+		LEFT JOIN curmain cn on (ct.curmain=cn.id)
+		LEFT JOIN (select cn.name,cn.id as id,sum(nntt.money) as money  from install ill 
+		           left join contract ct on (ct.id=ill.contractid)
+		           left join curmain cn on (cn.id=ct.curmain)
+		           left join (
+		                    select nt.contractid as cntid,sum(nt.money) as money from notpayticket nt
+		                    where nt.operadate is not null and  SUBSTR(to_char(nt.operadate,'yyyy-mm-dd'),1,4) =#{year}  GROUP BY nt.contractid
+		                    ) nntt on (nntt.cntid=ct.id)
+		           where ill.paydate &lt; SYSDATE group by  cn.name,cn.id ) insm 
+		ON (cn.id=insm.id)
+		LEFT JOIN (select cn.name,cn.id as id,sum(ill.paymoney) as money  from install ill 
+		           left join contract ct on (ct.id=ill.contractid)
+		           left join curmain cn on (cn.id=ct.curmain)
+		           group by  cn.name,cn.id ) insmtt on (cn.id=insmtt.id)
+		         
+		WHERE 
+		        SUBSTR(to_char(ct.datesigning,'yyyy-mm-dd'),1,4) =#{year}
+		AND ct.landtypeid in ('00000000000000000000000000000004','00000000000000000000000000000003')
+		AND ct.deleteflag='F'
+		GROUP BY insm.money, insmtt.money,insm.money/insmtt.money*100, cn.name
+	 </select>
+	 <select id="findTotalComTable" parameterType="ComYearTable" resultType="ComYearTable">
+	 		SELECT sum(totalRfz.money)/sum(totalRfm.money)*100 as totalRatio
+		    FROM contract ct
+			LEFT JOIN (select sum(nntttotal.money) as money,ill.contractid as id from install ill
+		               left join (
+		                    select nt.contractid as cntid,sum(nt.money) as money from notpayticket nt
+		                    where nt.operadate is not null and  SUBSTR(to_char(nt.operadate,'yyyy-mm-dd'),1,4) =#{year}  GROUP BY nt.contractid
+		                    ) nntttotal on (nntttotal.cntid=ill.contractid)
+		           where ill.paydate &lt; SYSDATE group by ill.contractid) totalRfz on (ct.id=totalRfz.id)
+		   LEFT JOIN (select sum(ill.paymoney) as money,ill.contractid as id from install ill
+		           group by ill.contractid) totalRfm on (ct.id=totalRfm.id)  
+		           
+		   WHERE SUBSTR(to_char(ct.datesigning, 'yyyy-mm-dd'), 1, 4) = #{year}
+		   AND ct.landtypeid in
+		       ('00000000000000000000000000000004',
+		        '00000000000000000000000000000003')
+		   AND ct.deleteflag = 'F'
+	 </select>
+	 <!-- 月度综合看板 收入-->
+	 <select id="incom" parameterType="ComYearTable" resultType="ComYearTable">
+	 	SELECT 
+		 	sum(nts.money) AS incomBym,
+		 	nts.month AS month
+		FROM 
+			contract ct
+		LEFT JOIN 
+			(SELECT 
+				sum(nt.money) as money,
+				substr(to_char(nt.operadate,'yyyy-mm-dd'),6,2)as month,
+				nt.contractid as id 
+			FROM notpayticket nt 
+			WHERE nt.operadate is not null and substr(to_char(nt.operadate,'yyyy-mm-dd'),1,4)=#{year}
+			GROUP by substr(to_char(nt.operadate,'yyyy-mm-dd'),6,2),nt.contractid) nts 
+		ON (ct.id=nts.id) 
+		WHERE ct.landtypeid in ('00000000000000000000000000000004','00000000000000000000000000000003')
+		AND  nts.month is not null
+		GROUP BY nts.month 
+		ORDER BY nts.month
+	 </select>
+	 <!-- 月度综合看板支出 -->
+	 <!-- 清算单 -->
+	 <select id="costQSD" parameterType="ComYearTable" resultType="ComYearTable">
+	 	select 
+		to_char(cot.sdtime,'MM') as month,
+		sum(co.sdmoney) as costMoneyQS
+		from contractcost cot
+		left join contract ct on (cot.contractid=ct.id)
+		LEFT JOIN (SELECT co.CONTRACTCOSTID as CcontractId,
+		                  SUM(co.money) as money,
+		                  SUM(co.sdmoney) as sdmoney 
+		                  FROM CONTRACTCOSTPRO co LEFT JOIN contractcost cc ON (cc.id=co.CONTRACTCOSTID) WHERE to_char(cc.sdtime,'yyyy')=#{year}  GROUP BY co.CONTRACTCOSTID)co
+		ON cot.id = co.CcontractId
+		where ct.landtypeid in ('00000000000000000000000000000004','00000000000000000000000000000003')
+		and to_char(cot.sdtime,'MM') is not null
+		group by to_char(cot.sdtime,'MM') order by to_char(cot.sdtime,'MM')
+	 </select>
+	 <!-- 资金分配  -->
+	 <select id="costAllocation" parameterType="ComYearTable" resultType="ComYearTable">
+	 	select 
+		sum(leds.money) as costMoneyFP,
+		leds.month as month
+		from contract ct
+		left join 
+		(select sum (led.apply_money) as money,
+		        led.contract_id as ctid,
+		        to_char(ld.check_date,'MM') as month
+		 from land_allocation_detailed led left join land_allocation_fund ld on (led.laf_id=ld.id) and to_char(ld.check_date,'yyyy')=#{year}
+		 group by led.contract_id,to_char(ld.check_date,'MM')) leds on (leds.ctid = ct.id)
+		where ct.landtypeid in ('00000000000000000000000000000004','00000000000000000000000000000003')
+		and leds.month is not null 
+		group by leds.month
+	 </select>
+	 <!-- 获取所有的熟化主体的名称 -->
+	 <select id="getCurmainName" resultType="String">
+	 	select cn.name from curmain cn where cn.name &lt;&gt;'其它' and cn.name &lt;&gt; '其他' and cn.name is not null
+	 </select>
+</mapper>

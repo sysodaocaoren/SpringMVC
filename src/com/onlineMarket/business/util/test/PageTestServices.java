@@ -20,4 +20,8 @@ public class PageTestServices {
 		log.info("00000000000000000000");
 		return this.pagemannger.selectPage(pa,page,PageTestDao.class.getName()+".list");
 	}
+	
+	public List<PageTest> listNoPage() {
+		return this.PageTestDao.list();
+	}
 }

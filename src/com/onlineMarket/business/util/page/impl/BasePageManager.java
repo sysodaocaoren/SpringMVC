@@ -54,11 +54,17 @@ public class BasePageManager<E> extends DaoSupport {
 		setPageCount(queryObject, page, selectName, null);
 		return getSqlSession().selectList(selectName, queryObject,	new RowBounds(page.getOffset(), page.getLimit()));
 	}
-
+    /**
+     * 计算分页的总数
+     * @param queryObject
+     * @param page
+     * @param selectName
+     * @param pos
+     */
 	private void setPageCount(Object queryObject, Page page, String selectName,	Integer pos) {
-		String sql = sqlTemplet(queryObject, selectName, pos);
+		String sql = sqlTemplet(queryObject, selectName, pos);//首先获取sql
 		page.setSql("FROM " + sql);
-
+		
 		page.setCount(((Integer) getSqlSession().selectOne("page.count", page)).intValue());
 		if (!page.getPagReamrk().equals("T")) {
 			page.setNowPage(1);
@@ -127,7 +133,7 @@ public class BasePageManager<E> extends DaoSupport {
 	}
 
 	/**
-	 * 递归获取要查询属性的�?
+	 * 递归获取要查询属性的�?
 	 * @param column
 	 * @param currentQueryObject
 	 * @param field
