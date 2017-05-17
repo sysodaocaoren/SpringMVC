@@ -24,9 +24,10 @@
 	<mvc:interceptors>  
 	  <bean class="interceptor.AuthorityInterceptor" />  
   	</mvc:interceptors>
-  	<!-- 加入Aspectj配置 -->  
+  	<!-- 加入Aspectj配置 -->   
     <aop:aspectj-autoproxy />  
     <bean id="logAspect" class="com.Log.LogAspect" />
     <bean id="logService" class="com.Log.service.LogServiceImp"></bean>
+    
 </beans>
 

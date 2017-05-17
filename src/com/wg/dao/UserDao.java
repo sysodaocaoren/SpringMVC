@@ -31,6 +31,7 @@ public interface UserDao {
 	  *  @return
 	  */
 	 public int updateUser(User user);
+	 public int updateLastUser(User user);
 	 /**
 	  *  É¾³ıÓÃ»§
 	  *  @author WG
@@ -38,4 +39,5 @@ public interface UserDao {
 	  *  @return
 	  */
 	 public int deleteUser(Long id);
+	 public User getUserByName(User user);
 }

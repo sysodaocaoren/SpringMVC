@@ -27,7 +27,7 @@ public class TestArrayList {
 		System.out.println(list3.contains("test2"));
 		list2.removeAll(list1);
 		//System.out.println(list3.toString());
-		//testEnsurecapacity();---测试设置容量和不设置容量效率的比较
+		//testEnsurecapacity();//测试设置容量和不设置容量效率的比较
 		//queryList();
 	}
 	

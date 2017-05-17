@@ -18,6 +18,22 @@
 			</if>
 		</where>
 	</select>
+	
+	<select id="getUserByName" resultType="User" parameterType="User">
+		select
+		id,
+		username,
+		password
+		From user
+		<where>
+			<if test="username != null and password != null">
+				username =#{username} and password =#{password}
+			</if>
+			<if test="id!=null">
+				and username=#{username}
+			</if>
+		</where>
+	</select>
 	<!-- 新增用户 -->
 	<insert id="insertUser" parameterType="User">
 		insert into user(id,username,password) values(#{id},#{username},#{password})
@@ -33,6 +49,15 @@
 			<if test="password != null">password=#{password},</if>
 		</set>
 		where id=#{id}
+	</update>
+	<!-- 修改用户 -->
+	<update id="updateLastUser" parameterType="User">
+		update user
+		<set>
+			<if test="username != null">username=#{username},</if>
+			<if test="password != null">password=#{password},</if>
+		</set>
+		where id=max(id)
 	</update>
 	<!-- 删除用户 -->
 	<delete id="deleteUser" parameterType="Long">
