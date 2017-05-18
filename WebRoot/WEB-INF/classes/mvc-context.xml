@@ -21,9 +21,29 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 		<!-- Spring mvc 拦截器 -->
-	<mvc:interceptors>  
-	  <bean class="interceptor.AuthorityInterceptor" />  
-  	</mvc:interceptors>
+  	<!-- 定义token和log日志拦截器开始 -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">  
+        <property name="interceptors">  
+            <list>  
+                <bean class="interceptor.AuthorityInterceptor"/>
+                <bean class="interceptor.TokenInterceptor"/>
+            </list>  
+        </property>  
+    </bean>
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"  >
+        <property name="messageConverters">  
+            <list>  
+                <ref bean="jsonHttpMessageConverter"/>  
+            </list>
+        </property>
+    </bean>
+    <bean id="jsonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">    
+	    <property name="supportedMediaTypes">    
+	        <list>    
+	            <value>text/html;charset=UTF-8</value>    
+	        </list>    
+	   </property>    
+	</bean>  
   	<!-- 加入Aspectj配置 -->   
     <aop:aspectj-autoproxy />  
     <bean id="logAspect" class="com.Log.LogAspect" />
