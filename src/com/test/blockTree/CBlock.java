@@ -70,7 +70,7 @@ public class CBlock {
 	//获取所有的子节点
 	public List<CBlock> getJuniros(){
 		List<CBlock> junirodBlocks=new ArrayList<CBlock>();
-		List<CBlock> junirodBlock=new ArrayList<CBlock>();
+		List<CBlock> junirodBlock=this.getChild();
 		if(junirodBlock.size()==0){
 			return junirodBlocks;
 		}else{

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:cxf="http://cxf.apache.org/core"
+	xsi:schemaLocation="http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-autowire="byType" default-lazy-init="true">
+
+	<description>使用Apache CXF的Web Service配置文件，以下三个为固定配置文件(不需要创建)</description>
+	<!-- <import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" /> -->
+
+	<!--在这里配置相应内容-->
+	<!--id:随意配，implementor：指定接口具体实现类，address:随意配，访问时会用到,下面会做说明-->  
+	<!-- <jaxws:endpoint id="HelloWorldService" implementor="cn.com.testCxf.testCxf0001.SayHiImpl"  
+	        address="/sayHi">  
+	</jaxws:endpoint>   -->
+	<!--  <jaxws:client id="webServiceBean" serviceClass="com.test.testCxf0001.SayHiImolService" 
+    address="http://localhost:8090/service" /> -->
+</beans>

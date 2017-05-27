@@ -13,5 +13,4 @@ public class TestInitializing implements InitializingBean{
 	public void test2222(){
 		System.out.println("Œ“ «test222222~~~~~~~~");
 	}
-	
 }
