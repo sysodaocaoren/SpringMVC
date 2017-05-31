@@ -3,7 +3,6 @@ package com.test;
 import java.rmi.RemoteException;
 
 import javax.xml.namespace.QName;
-import javax.xml.rpc.ServiceException;
 
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.cxf.jaxws.endpoint.dynamic.JaxWsDynamicClientFactory;
