@@ -49,13 +49,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    }
 </script>
 <body>
-	<form action="regist/123.do" method="post">
+	<form action="login.do" method="post">
 	        ID   ：<input type="text" name="id" />
 	    <p>
 		    username:<input type="text" name="username" />
 		<p>
 			password:<input type="password" name="password" />
 		<p>
+			createdDate: <input type="text" name="createdDate" onfocus="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd'})" class="Wdate" />
 			<input type="submit" value="submit" />
 			<input type="button" value="显示" onclick="showIframe()"/>
 		<div>

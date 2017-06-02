@@ -68,7 +68,13 @@ public class UserController {
 		System.out.println("username=" + 11 + " password=" + 222);
 		return mav;
 	}
-
+	
+	@RequestMapping("toLogin")
+	public ModelAndView toLogin(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView("login");
+		return mav;
+	}
+	
 	/***
 	 * 验证参数是否为空
 	 * 

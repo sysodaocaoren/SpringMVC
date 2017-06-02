@@ -7,4 +7,5 @@
 <script type="text/javascript" src="${ctx}/js/jquery-ui.custom.min.js"></script>
 <script type="text/javascript" src="${ctx}/js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="${ctx}/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="${ctx}/js/My97DatePicker/WdatePicker.js"></script>
 <link rel="stylesheet" href="css/jquery-ui.css"  />

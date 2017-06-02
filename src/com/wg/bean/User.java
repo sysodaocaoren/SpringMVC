@@ -1,11 +1,22 @@
 package com.wg.bean;
 
+import java.sql.Date;
 
 public class User {
 	int number;
 	private Long id;
 	private String username;
 	private String password;
+	
+	private String createdDate;
+
+	public String getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(String createdDate) {
+		this.createdDate = createdDate;
+	}
 
 	public Long getId() {
 		return id;
