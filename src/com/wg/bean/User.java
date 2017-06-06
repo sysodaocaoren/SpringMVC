@@ -1,20 +1,20 @@
 package com.wg.bean;
 
-import java.sql.Date;
+import java.util.Date;
 
-public class User {
+public class User{
 	int number;
 	private Long id;
 	private String username;
 	private String password;
 	
-	private String createdDate;
+	private Date createdDate;
 
-	public String getCreatedDate() {
+	public Date getCreatedDate() {
 		return createdDate;
 	}
 
-	public void setCreatedDate(String createdDate) {
+	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
 

@@ -25,4 +25,5 @@ public class ShapeFactory extends AbstactFactory{
 	Color getColor(String name) {
 		return null;
 	}
+
 }

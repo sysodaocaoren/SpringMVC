@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.common.config.commonClass.BaseController;
 import com.wg.bean.User;
 import com.wg.service.UserService;
 
 @Controller
-public class UserController {
+public class UserController extends BaseController{
 
 	@Autowired
 	private UserService userService;
