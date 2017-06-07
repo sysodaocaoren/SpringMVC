@@ -77,6 +77,13 @@
     <welcome-file-list>  
         <welcome-file>/WEB-INF/page/login.jsp</welcome-file>  
     </welcome-file-list>  
-  
+  	<servlet>    
+        <servlet-name>springWsServlet</servlet-name>    
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSSpringServlet</servlet-class>    
+    </servlet>    
+    <servlet-mapping>    
+        <servlet-name>springWsServlet</servlet-name>    
+        <url-pattern>/jaxws-spring</url-pattern>    
+    </servlet-mapping>    
   
 </web-app>  
