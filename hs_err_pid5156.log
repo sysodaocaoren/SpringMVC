@@ -1,0 +1,922 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x0000000060fd4289, pid=5156, tid=7028
+#
+# JRE version: Java(TM) SE Runtime Environment (7.0_67-b01) (build 1.7.0_67-b01)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (24.65-b04 mixed mode windows-amd64 compressed oops)
+# Problematic frame:
+# V  [jvm.dll+0xa4289]
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000000051f800):  JavaThread "main" [_thread_in_vm, id=7028, stack(0x0000000002720000,0x0000000002820000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x000000000000000c
+
+Registers:
+RAX=0x0000000000000004, RBX=0x0000000000000000, RCX=0x000000000255a408, RDX=0x000000000255a3e0
+RSP=0x000000000281f4d0, RBP=0x000000000255a3e8, RSI=0x000000000255a3f8, RDI=0x000000000255a400
+R8 =0x0000000771820c98, R9 =0x0000000000000099, R10=0x0000000771820c98, R11=0x000000000281f600
+R12=0x000000000051f800, R13=0x0000000000000014, R14=0x00000000025a32c0, R15=0x00000000025b01e0
+RIP=0x0000000060fd4289, EFLAGS=0x0000000000010202
+
+Top of Stack: (sp=0x000000000281f4d0)
+0x000000000281f4d0:   0000000000000000 0000000000000000
+0x000000000281f4e0:   000000000255a428 0000000000000000
+0x000000000281f4f0:   000000000255a438 0000000061006c01
+0x000000000281f500:   000000000051f800 0000000060fb00ff
+0x000000000281f510:   000000000255a440 0000000060fb00ff
+0x000000000281f520:   00000000000000b6 0000000002559f00
+0x000000000281f530:   0000000771822404 0000000000000000
+0x000000000281f540:   000000000255a3e0 000000000051f800
+0x000000000281f550:   000000000281f639 0000000060fd44fc
+0x000000000281f560:   000000000281f600 000000000255a3e0
+0x000000000281f570:   000000000255a3e8 0000000000000000
+0x000000000281f580:   000000000051f800 000000000281f6c8
+0x000000000281f590:   000000000255a3e0 0000000060fcecab
+0x000000000281f5a0:   00000000025b01e0 000000006100c411
+0x000000000281f5b0:   0000000000000000 0000000000000000
+0x000000000281f5c0:   00000000000000b6 000000000051f800 
+
+Instructions: (pc=0x0000000060fd4289)
+0x0000000060fd4269:   24 08 0f 85 82 00 00 00 48 8b 94 24 98 00 00 00
+0x0000000060fd4279:   48 85 d2 74 44 38 1d 14 fd 6a 00 48 8b 02 74 15
+0x0000000060fd4289:   8b 40 08 8b 0d 26 06 65 00 48 d3 e0 48 03 05 14
+0x0000000060fd4299:   06 65 00 eb 04 48 8b 40 08 48 85 c0 74 1b 49 8b 
+
+
+Register to memory mapping:
+
+RAX=0x0000000000000004 is an unknown value
+RBX=0x0000000000000000 is an unknown value
+RCX=0x000000000255a408 is an unknown value
+RDX=0x000000000255a3e0 is an unknown value
+RSP=0x000000000281f4d0 is pointing into the stack for thread: 0x000000000051f800
+RBP=0x000000000255a3e8 is an unknown value
+RSI=0x000000000255a3f8 is an unknown value
+RDI=0x000000000255a400 is an unknown value
+R8 =0x0000000771820c98 is an oop
+{constant pool} 
+ - klass: {other class}
+ - holder: 0x0000000771823778
+ - cache: 0x00000007718ab3f8
+ -   1 :  : klass_index=95 name_and_type_index=188
+ -   2 :  : klass_index=79 name_and_type_index=189
+ -   3 :  : klass_index=79 name_and_type_index=190
+ -   4 :  : klass_index=79 name_and_type_index=191
+ -   5 :  : klass_index=79 name_and_type_index=192
+ -   6 :  : klass_index=79 name_and_type_index=193
+ -   7 :  : klass_index=79 name_and_type_index=194
+ -   8 :  : klass_index=79 name_and_type_index=195
+ -   9 :  : klass_index=79 name_and_type_index=196
+ -  10 :  : klass_index=79 name_and_type_index=197
+ -  11 :  : 'java/lang/IllegalStateException'
+ -  12 :  : 'java/lang/StringBuilder'
+ -  13 :  : klass_index=12 name_and_type_index=188
+ -  14 :  : "Can't overwrite cause with " {0xd5de9a50}
+ -  15 :  : klass_index=12 name_and_type_index=201
+ -  16 :  : "a null" {0xd5de9ab0}
+ -  17 :  : klass_index=203 name_and_type_index=204
+ -  18 :  : klass_index=12 name_and_type_index=196
+ -  19 :  : klass_index=11 name_and_type_index=205
+ -  20 :  : 'java/lang/IllegalArgumentException'
+ -  21 :  : "Self-causation not permitted" {0xd5de9ae8}
+ -  22 :  : klass_index=20 name_and_type_index=205
+ -  23 :  : klass_index=95 name_and_type_index=208
+ -  24 :  : klass_index=209 name_and_type_index=210
+ -  25 :  : klass_index=79 name_and_type_index=211
+ -  26 :  : ": " {0xd5de9b48}
+ -  27 :  : klass_index=213 name_and_type_index=214
+ -  28 :  : klass_index=79 name_and_type_index=215
+ -  29 :  : 'java/lang/Throwable$WrappedPrintStream'
+ -  30 :  : klass_index=29 name_and_type_index=217
+ -  31 :  : klass_index=79 name_and_type_index=218
+ -  32 :  : 'java/util/IdentityHashMap'
+ -  33 :  : klass_index=32 name_and_type_index=188
+ -  34 :  : klass_index=220 name_and_type_index=221
+ -  35 :  : klass_index=222 name_and_type_index=223
+ -  36 :  : klass_index=102 name_and_type_index=224
+ -  37 :  : klass_index=102 name_and_type_index=225
+ -  38 :  : klass_index=79 name_and_type_index=226
+ -  39 :  : "	at " {0xd5de9b78}
+ -  40 :  : klass_index=12 name_and_type_index=228
+ -  41 :  : klass_index=79 name_and_type_index=229
+ -  42 :  : "Suppressed: " {0xd5d00f58}
+ -  43 :  : "	" {0xd5de9ba8}
+ -  44 :  : klass_index=79 name_and_type_index=232
+ -  45 :  : klass_index=79 name_and_type_index=233
+ -  46 :  : "Caused by: " {0xd5d00f18}
+ -  47 :  : "" {0xd5d07500}
+ -  48 :  : klass_index=79 name_and_type_index=235
+ -  49 :  : klass_index=236 name_and_type_index=237
+ -  50 :  : 'java/lang/AssertionError'
+ -  51 :  : klass_index=50 name_and_type_index=188
+ -  52 :  : klass_index=222 name_and_type_index=239
+ -  53 :  : "	[CIRCULAR REFERENCE:" {0xd5de9bd8}
+ -  54 :  : "]" {0xd5de9c30}
+ -  55 :  : klass_index=66 name_and_type_index=242
+ -  56 :  : "	... " {0xd5de9c60}
+ -  57 :  : klass_index=12 name_and_type_index=244
+ -  58 :  : " more" {0xd5de9c98}
+ -  59 :  : 'java/lang/Throwable$WrappedPrintWriter'
+ -  60 :  : klass_index=59 name_and_type_index=247
+ -  61 :  : klass_index=79 name_and_type_index=248
+ -  62 :  : klass_index=79 name_and_type_index=249
+ -  63 :  : klass_index=250 name_and_type_index=251
+ -  64 :  : '[Ljava/lang/StackTraceElement;'
+ -  65 :  : klass_index=79 name_and_type_index=252
+ -  66 :  : 'java/lang/StackTraceElement' {0x7188efb8}
+ -  67 :  : klass_index=79 name_and_type_index=254
+ -  68 :  : klass_index=255 name_and_type_index=251
+ -  69 :  : 'java/lang/NullPointerException'
+ -  70 :  : "stackTrace[" {0xd5de9cd0}
+ -  71 :  : klass_index=69 name_and_type_index=258
+ -  72 :  : klass_index=259 name_and_type_index=260
+ -  73 :  : klass_index=261 name_and_type_index=262
+ -  74 :  : 'java/util/ArrayList' {0x718f9c40}
+ -  75 :  : klass_index=74 name_and_type_index=264
+ -  76 :  : klass_index=261 name_and_type_index=265
+ -  77 :  : klass_index=266 name_and_type_index=267
+ -  78 :  : klass_index=266 name_and_type_index=268
+ -  79 :  : 'java/lang/Throwable' {0x71823778}
+ -  80 :  : "Cannot suppress a null exception." {0xd5d00e40}
+ -  81 :  : "Self-suppression not permitted" {0xd5d00eb0}
+ -  82 :  : klass_index=20 name_and_type_index=258
+ -  83 :  : klass_index=261 name_and_type_index=223
+ -  84 :  : klass_index=272 name_and_type_index=251
+ -  85 :  : klass_index=104 name_and_type_index=273
+ -  86 :  : "null StackTraceElement in serial stream. " {0xd5de9d10}
+ -  87 :  : klass_index=275 name_and_type_index=251
+ -  88 :  : klass_index=104 name_and_type_index=276
+ -  89 :  : klass_index=277 name_and_type_index=278
+ -  90 :  : klass_index=79 name_and_type_index=279
+ -  91 :  : klass_index=261 name_and_type_index=280
+ -  92 :  : '[Ljava/lang/Throwable;'
+ -  93 :  : klass_index=209 name_and_type_index=281
+ -  94 :  : klass_index=220 name_and_type_index=282
+ -  95 :  : 'java/lang/Object' {0x71802bf8}
+ -  96 :  : 'java/io/Serializable'
+ -  97 :  : 'java/lang/Throwable$1'
+ -  98 :  : ''
+ -  99 :  : 'InnerClasses'
+ - 100 :  : 'WrappedPrintWriter'
+ - 101 :  : 'WrappedPrintStream'
+ - 102 :  : 'java/lang/Throwable$PrintStreamOrWriter'
+ - 103 :  : 'PrintStreamOrWriter'
+ - 104 :  : 'java/lang/Throwable$SentinelHolder'
+ - 105 :  : 'SentinelHolder'
+ - 106 :  : 'serialVersionUID'
+ - 107 :  : 'J'
+ - 108 :  : 'ConstantValue'
+ - 109 :  : -3042686055658047285
+ - 111 :  : 'backtrace'
+ - 112 :  : 'Ljava/lang/Object;'
+ - 113 :  : 'detailMessage'
+ - 114 :  : 'Ljava/lang/String;'
+ - 115 :  : 'UNASSIGNED_STACK'
+ - 116 :  : '[Ljava/lang/StackTraceElement;'
+ - 117 :  : 'cause'
+ - 118 :  : 'Ljava/lang/Throwable;'
+ - 119 :  : 'stackTrace'
+ - 120 :  : 'SUPPRESSED_SENTINEL'
+ - 121 :  : 'Ljava/util/List;'
+ - 122 :  : 'Signature'
+ - 123 :  : 'Ljava/util/List<Ljava/lang/Throwable;>;'
+ - 124 :  : 'suppressedExceptions'
+ - 125 :  : 'NULL_CAUSE_MESSAGE'
+ - 126 :  : 'SELF_SUPPRESSION_MESSAGE'
+ - 127 :  : 'CAUSE_CAPTION'
+ - 128 :  : 'SUPPRESSED_CAPTION'
+ - 129 :  : 'EMPTY_THROWABLE_ARRAY'
+ - 130 :  : '[Ljava/lang/Throwable;'
+ - 131 :  : '$assertionsDisabled'
+ - 132 :  : 'Z'
+ - 133 :  : '<init>'
+ - 134 :  : '()V'
+ - 135 :  : 'Code'
+ - 136 :  : 'LineNumberTable'
+ - 137 :  : '(Ljava/lang/String;)V'
+ - 138 :  : '(Ljava/lang/String;Ljava/lang/Throwable;)V'
+ - 139 :  : '(Ljava/lang/Throwable;)V'
+ - 140 :  : 'StackMapTable'
+ - 141 :  : 'java/lang/Throwable'
+ - 142 :  : 'java/lang/String'
+ - 143 :  : '(Ljava/lang/String;Ljava/lang/Throwable;ZZ)V'
+ - 144 :  : 'getMessage'
+ - 145 :  : '()Ljava/lang/String;'
+ - 146 :  : 'getLocalizedMessage'
+ - 147 :  : 'getCause'
+ - 148 :  : '()Ljava/lang/Throwable;'
+ - 149 :  : 'initCause'
+ - 150 :  : '(Ljava/lang/Throwable;)Ljava/lang/Throwable;'
+ - 151 :  : 'toString'
+ - 152 :  : 'printStackTrace'
+ - 153 :  : '(Ljava/io/PrintStream;)V'
+ - 154 :  : '(Ljava/lang/Throwable$PrintStreamOrWriter;)V'
+ - 155 :  : 'java/lang/Throwable$PrintStreamOrWriter'
+ - 156 :  : 'java/util/Set'
+ - 157 :  : 'java/lang/Object'
+ - 158 :  : 'printEnclosedStackTrace'
+ - 159 :  : '(Ljava/lang/Throwable$PrintStreamOrWriter;[Ljava/lang/StackTraceElement;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)V'
+ - 160 :  : '(Ljava/lang/Throwable$PrintStreamOrWriter;[Ljava/lang/StackTraceElement;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set<Ljava/lang/Throwable;>;)V'
+ - 161 :  : '(Ljava/io/PrintWriter;)V'
+ - 162 :  : 'fillInStackTrace'
+ - 163 :  : '(I)Ljava/lang/Throwable;'
+ - 164 :  : 'getStackTrace'
+ - 165 :  : '()[Ljava/lang/StackTraceElement;'
+ - 166 :  : 'getOurStackTrace'
+ - 167 :  : 'setStackTrace'
+ - 168 :  : '([Ljava/lang/StackTraceElement;)V'
+ - 169 :  : 'getStackTraceDepth'
+ - 170 :  : '()I'
+ - 171 :  : 'getStackTraceElement'
+ - 172 :  : '(I)Ljava/lang/StackTraceElement;'
+ - 173 :  : 'readObject'
+ - 174 :  : '(Ljava/io/ObjectInputStream;)V'
+ - 175 :  : 'java/util/List'
+ - 176 :  : 'java/util/Iterator'
+ - 177 :  : 'Exceptions'
+ - 178 :  : 'java/io/IOException'
+ - 179 :  : 'java/lang/ClassNotFoundException'
+ - 180 :  : 'writeObject'
+ - 181 :  : '(Ljava/io/ObjectOutputStream;)V'
+ - 182 :  : 'addSuppressed'
+ - 183 :  : 'getSuppressed'
+ - 184 :  : '()[Ljava/lang/Throwable;'
+ - 185 :  : '<clinit>'
+ - 186 :  : 'SourceFile'
+ - 187 :  : 'Throwable.java'
+ - 188 :  : name_index=133 signature_index=134
+ - 189 :  : name_index=117 signature_index=118
+ - 190 :  : name_index=115 signature_index=116
+ - 191 :  : name_index=119 signature_index=116
+ - 192 :  : name_index=120 signature_index=121
+ - 193 :  : name_index=124 signature_index=121
+ - 194 :  : name_index=162 signature_index=148
+ - 195 :  : name_index=113 signature_index=114
+ - 196 :  : name_index=151 signature_index=145
+ - 197 :  : name_index=144 signature_index=145
+ - 198 :  : 'java/lang/IllegalStateException'
+ - 199 :  : 'java/lang/StringBuilder'
+ - 200 :  : 'Can't overwrite cause with '
+ - 201 :  : name_index=294 signature_index=295
+ - 202 :  : 'a null'
+ - 203 :  : 'java/util/Objects'
+ - 204 :  : name_index=151 signature_index=297
+ - 205 :  : name_index=133 signature_index=138
+ - 206 :  : 'java/lang/IllegalArgumentException'
+ - 207 :  : 'Self-causation not permitted'
+ - 208 :  : name_index=298 signature_index=299
+ - 209 :  : 'java/lang/Class' {0x718160f0}
+ - 210 :  : name_index=301 signature_index=145
+ - 211 :  : name_index=146 signature_index=145
+ - 212 :  : ': '
+ - 213 :  : 'java/lang/System' {0x71820a68}
+ - 214 :  : name_index=303 signature_index=304
+ - 215 :  : name_index=152 signature_index=153
+ - 216 :  : 'java/lang/Throwable$WrappedPrintStream'
+ - 217 :  : name_index=133 signature_index=153
+ - 218 :  : name_index=152 signature_index=154
+ - 219 :  : 'java/util/IdentityHashMap'
+ - 220 :  : 'java/util/Collections' {0x71900640}
+ - 221 :  : name_index=306 signature_index=307
+ - 222 :  : 'java/util/Set'
+ - 223 :  : name_index=308 signature_index=309
+ - 224 :  : name_index=310 signature_index=311
+ - 225 :  : name_index=312 signature_index=313
+ - 226 :  : name_index=166 signature_index=165
+ - 227 :  : '	at '
+ - 228 :  : name_index=294 signature_index=314
+ - 229 :  : name_index=183 signature_index=184
+ - 230 :  : 'Suppressed: '
+ - 231 :  : '	'
+ - 232 :  : name_index=158 signature_index=159
+ - 233 :  : name_index=147 signature_index=148
+ - 234 :  : 'Caused by: '
+ - 235 :  : name_index=131 signature_index=132
+ - 236 :  : 'java/lang/Thread'
+ - 237 :  : name_index=316 signature_index=309
+ - 238 :  : 'java/lang/AssertionError'
+ - 239 :  : name_index=317 signature_index=309
+ - 240 :  : '	[CIRCULAR REFERENCE:'
+ - 241 :  : ']'
+ - 242 :  : name_index=318 signature_index=309
+ - 243 :  : '	... '
+ - 244 :  : name_index=294 signature_index=319
+ - 245 :  : ' more'
+ - 246 :  : 'java/lang/Throwable$WrappedPrintWriter'
+ - 247 :  : name_index=133 signature_index=161
+ - 248 :  : name_index=111 signature_index=112
+ - 249 :  : name_index=162 signature_index=163
+ - 250 :  : '[Ljava/lang/StackTraceElement;'
+ - 251 :  : name_index=320 signature_index=311
+ - 252 :  : name_index=169 signature_index=170
+ - 253 :  : 'java/lang/StackTraceElement'
+ - 254 :  : name_index=171 signature_index=172
+ - 255 :  : '[Ljava/lang/StackTraceElement;'
+ - 256 :  : 'java/lang/NullPointerException'
+ - 257 :  : 'stackTrace['
+ - 258 :  : name_index=133 signature_index=137
+ - 259 :  : 'java/io/ObjectInputStream'
+ - 260 :  : name_index=322 signature_index=134
+ - 261 :  : 'java/util/List'
+ - 262 :  : name_index=323 signature_index=324
+ - 263 :  : 'java/util/ArrayList'
+ - 264 :  : name_index=133 signature_index=325
+ - 265 :  : name_index=326 signature_index=327
+ - 266 :  : 'java/util/Iterator'
+ - 267 :  : name_index=328 signature_index=324
+ - 268 :  : name_index=329 signature_index=311
+ - 269 :  : 'java/lang/Throwable'
+ - 270 :  : 'Cannot suppress a null exception.'
+ - 271 :  : 'Self-suppression not permitted'
+ - 272 :  : '[Ljava/lang/StackTraceElement;'
+ - 273 :  : name_index=330 signature_index=331
+ - 274 :  : 'null StackTraceElement in serial stream. '
+ - 275 :  : '[Ljava/lang/StackTraceElement;'
+ - 276 :  : name_index=332 signature_index=116
+ - 277 :  : 'java/io/ObjectOutputStream'
+ - 278 :  : name_index=334 signature_index=134
+ - 279 :  : name_index=129 signature_index=130
+ - 280 :  : name_index=335 signature_index=336
+ - 281 :  : name_index=337 signature_index=324
+ - 282 :  : name_index=338 signature_index=339
+ - 283 :  : 'java/lang/Object'
+ - 284 :  : 'java/io/Serializable'
+ - 285 :  : 'java/lang/Throwable$1'
+ - 286 :  : 'java/lang/Throwable$PrintStreamOrWriter'
+ - 287 :  : 'java/lang/Throwable$SentinelHolder'
+ - 288 :  : 'java/lang/String'
+ - 289 :  : 'java/util/Set'
+ - 290 :  : 'java/util/List'
+ - 291 :  : 'java/util/Iterator'
+ - 292 :  : 'java/io/IOException'
+ - 293 :  : 'java/lang/ClassNotFoundException'
+ - 294 :  : 'append'
+ - 295 :  : '(Ljava/lang/String;)Ljava/lang/StringBuilder;'
+ - 296 :  : 'java/util/Objects'
+ - 297 :  : '(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;'
+ - 298 :  : 'getClass'
+ - 299 :  : '()Ljava/lang/Class;'
+ - 300 :  : 'java/lang/Class'
+ - 301 :  : 'getName'
+ - 302 :  : 'java/lang/System'
+ - 303 :  : 'err'
+ - 304 :  : 'Ljava/io/PrintStream;'
+ - 305 :  : 'java/util/Collections'
+ - 306 :  : 'newSetFromMap'
+ - 307 :  : '(Ljava/util/Map;)Ljava/util/Set;'
+ - 308 :  : 'add'
+ - 309 :  : '(Ljava/lang/Object;)Z'
+ - 310 :  : 'lock'
+ - 311 :  : '()Ljava/lang/Object;'
+ - 312 :  : 'println'
+ - 313 :  : '(Ljava/lang/Object;)V'
+ - 314 :  : '(Ljava/lang/Object;)Ljava/lang/StringBuilder;'
+ - 315 :  : 'java/lang/Thread'
+ - 316 :  : 'holdsLock'
+ - 317 :  : 'contains'
+ - 318 :  : 'equals'
+ - 319 :  : '(I)Ljava/lang/StringBuilder;'
+ - 320 :  : 'clone'
+ - 321 :  : 'java/io/ObjectInputStream'
+ - 322 :  : 'defaultReadObject'
+ - 323 :  : 'isEmpty'
+ - 324 :  : '()Z'
+ - 325 :  : '(I)V'
+ - 326 :  : 'iterator'
+ - 327 :  : '()Ljava/util/Iterator;'
+ - 328 :  : 'hasNext'
+ - 329 :  : 'next'
+ - 330 :  : 'STACK_TRACE_ELEMENT_SENTINEL'
+ - 331 :  : 'Ljava/lang/StackTraceElement;'
+ - 332 :  : 'STACK_TRACE_SENTINEL'
+ - 333 :  : 'java/io/ObjectOutputStream'
+ - 334 :  : 'defaultWriteObject'
+ - 335 :  : 'toArray'
+ - 336 :  : '([Ljava/lang/Object;)[Ljava/lang/Object;'
+ - 337 :  : 'desiredAssertionStatus'
+ - 338 :  : 'unmodifiableList'
+ - 339 :  : '(Ljava/util/List;)Ljava/util/List;'
+
+R9 =0x0000000000000099 is an unknown value
+R10=0x0000000771820c98 is an oop
+{constant pool} 
+ - klass: {other class}
+ - holder: 0x0000000771823778
+ - cache: 0x00000007718ab3f8
+ -   1 :  : klass_index=95 name_and_type_index=188
+ -   2 :  : klass_index=79 name_and_type_index=189
+ -   3 :  : klass_index=79 name_and_type_index=190
+ -   4 :  : klass_index=79 name_and_type_index=191
+ -   5 :  : klass_index=79 name_and_type_index=192
+ -   6 :  : klass_index=79 name_and_type_index=193
+ -   7 :  : klass_index=79 name_and_type_index=194
+ -   8 :  : klass_index=79 name_and_type_index=195
+ -   9 :  : klass_index=79 name_and_type_index=196
+ -  10 :  : klass_index=79 name_and_type_index=197
+ -  11 :  : 'java/lang/IllegalStateException'
+ -  12 :  : 'java/lang/StringBuilder'
+ -  13 :  : klass_index=12 name_and_type_index=188
+ -  14 :  : "Can't overwrite cause with " {0xd5de9a50}
+ -  15 :  : klass_index=12 name_and_type_index=201
+ -  16 :  : "a null" {0xd5de9ab0}
+ -  17 :  : klass_index=203 name_and_type_index=204
+ -  18 :  : klass_index=12 name_and_type_index=196
+ -  19 :  : klass_index=11 name_and_type_index=205
+ -  20 :  : 'java/lang/IllegalArgumentException'
+ -  21 :  : "Self-causation not permitted" {0xd5de9ae8}
+ -  22 :  : klass_index=20 name_and_type_index=205
+ -  23 :  : klass_index=95 name_and_type_index=208
+ -  24 :  : klass_index=209 name_and_type_index=210
+ -  25 :  : klass_index=79 name_and_type_index=211
+ -  26 :  : ": " {0xd5de9b48}
+ -  27 :  : klass_index=213 name_and_type_index=214
+ -  28 :  : klass_index=79 name_and_type_index=215
+ -  29 :  : 'java/lang/Throwable$WrappedPrintStream'
+ -  30 :  : klass_index=29 name_and_type_index=217
+ -  31 :  : klass_index=79 name_and_type_index=218
+ -  32 :  : 'java/util/IdentityHashMap'
+ -  33 :  : klass_index=32 name_and_type_index=188
+ -  34 :  : klass_index=220 name_and_type_index=221
+ -  35 :  : klass_index=222 name_and_type_index=223
+ -  36 :  : klass_index=102 name_and_type_index=224
+ -  37 :  : klass_index=102 name_and_type_index=225
+ -  38 :  : klass_index=79 name_and_type_index=226
+ -  39 :  : "	at " {0xd5de9b78}
+ -  40 :  : klass_index=12 name_and_type_index=228
+ -  41 :  : klass_index=79 name_and_type_index=229
+ -  42 :  : "Suppressed: " {0xd5d00f58}
+ -  43 :  : "	" {0xd5de9ba8}
+ -  44 :  : klass_index=79 name_and_type_index=232
+ -  45 :  : klass_index=79 name_and_type_index=233
+ -  46 :  : "Caused by: " {0xd5d00f18}
+ -  47 :  : "" {0xd5d07500}
+ -  48 :  : klass_index=79 name_and_type_index=235
+ -  49 :  : klass_index=236 name_and_type_index=237
+ -  50 :  : 'java/lang/AssertionError'
+ -  51 :  : klass_index=50 name_and_type_index=188
+ -  52 :  : klass_index=222 name_and_type_index=239
+ -  53 :  : "	[CIRCULAR REFERENCE:" {0xd5de9bd8}
+ -  54 :  : "]" {0xd5de9c30}
+ -  55 :  : klass_index=66 name_and_type_index=242
+ -  56 :  : "	... " {0xd5de9c60}
+ -  57 :  : klass_index=12 name_and_type_index=244
+ -  58 :  : " more" {0xd5de9c98}
+ -  59 :  : 'java/lang/Throwable$WrappedPrintWriter'
+ -  60 :  : klass_index=59 name_and_type_index=247
+ -  61 :  : klass_index=79 name_and_type_index=248
+ -  62 :  : klass_index=79 name_and_type_index=249
+ -  63 :  : klass_index=250 name_and_type_index=251
+ -  64 :  : '[Ljava/lang/StackTraceElement;'
+ -  65 :  : klass_index=79 name_and_type_index=252
+ -  66 :  : 'java/lang/StackTraceElement' {0x7188efb8}
+ -  67 :  : klass_index=79 name_and_type_index=254
+ -  68 :  : klass_index=255 name_and_type_index=251
+ -  69 :  : 'java/lang/NullPointerException'
+ -  70 :  : "stackTrace[" {0xd5de9cd0}
+ -  71 :  : klass_index=69 name_and_type_index=258
+ -  72 :  : klass_index=259 name_and_type_index=260
+ -  73 :  : klass_index=261 name_and_type_index=262
+ -  74 :  : 'java/util/ArrayList' {0x718f9c40}
+ -  75 :  : klass_index=74 name_and_type_index=264
+ -  76 :  : klass_index=261 name_and_type_index=265
+ -  77 :  : klass_index=266 name_and_type_index=267
+ -  78 :  : klass_index=266 name_and_type_index=268
+ -  79 :  : 'java/lang/Throwable' {0x71823778}
+ -  80 :  : "Cannot suppress a null exception." {0xd5d00e40}
+ -  81 :  : "Self-suppression not permitted" {0xd5d00eb0}
+ -  82 :  : klass_index=20 name_and_type_index=258
+ -  83 :  : klass_index=261 name_and_type_index=223
+ -  84 :  : klass_index=272 name_and_type_index=251
+ -  85 :  : klass_index=104 name_and_type_index=273
+ -  86 :  : "null StackTraceElement in serial stream. " {0xd5de9d10}
+ -  87 :  : klass_index=275 name_and_type_index=251
+ -  88 :  : klass_index=104 name_and_type_index=276
+ -  89 :  : klass_index=277 name_and_type_index=278
+ -  90 :  : klass_index=79 name_and_type_index=279
+ -  91 :  : klass_index=261 name_and_type_index=280
+ -  92 :  : '[Ljava/lang/Throwable;'
+ -  93 :  : klass_index=209 name_and_type_index=281
+ -  94 :  : klass_index=220 name_and_type_index=282
+ -  95 :  : 'java/lang/Object' {0x71802bf8}
+ -  96 :  : 'java/io/Serializable'
+ -  97 :  : 'java/lang/Throwable$1'
+ -  98 :  : ''
+ -  99 :  : 'InnerClasses'
+ - 100 :  : 'WrappedPrintWriter'
+ - 101 :  : 'WrappedPrintStream'
+ - 102 :  : 'java/lang/Throwable$PrintStreamOrWriter'
+ - 103 :  : 'PrintStreamOrWriter'
+ - 104 :  : 'java/lang/Throwable$SentinelHolder'
+ - 105 :  : 'SentinelHolder'
+ - 106 :  : 'serialVersionUID'
+ - 107 :  : 'J'
+ - 108 :  : 'ConstantValue'
+ - 109 :  : -3042686055658047285
+ - 111 :  : 'backtrace'
+ - 112 :  : 'Ljava/lang/Object;'
+ - 113 :  : 'detailMessage'
+ - 114 :  : 'Ljava/lang/String;'
+ - 115 :  : 'UNASSIGNED_STACK'
+ - 116 :  : '[Ljava/lang/StackTraceElement;'
+ - 117 :  : 'cause'
+ - 118 :  : 'Ljava/lang/Throwable;'
+ - 119 :  : 'stackTrace'
+ - 120 :  : 'SUPPRESSED_SENTINEL'
+ - 121 :  : 'Ljava/util/List;'
+ - 122 :  : 'Signature'
+ - 123 :  : 'Ljava/util/List<Ljava/lang/Throwable;>;'
+ - 124 :  : 'suppressedExceptions'
+ - 125 :  : 'NULL_CAUSE_MESSAGE'
+ - 126 :  : 'SELF_SUPPRESSION_MESSAGE'
+ - 127 :  : 'CAUSE_CAPTION'
+ - 128 :  : 'SUPPRESSED_CAPTION'
+ - 129 :  : 'EMPTY_THROWABLE_ARRAY'
+ - 130 :  : '[Ljava/lang/Throwable;'
+ - 131 :  : '$assertionsDisabled'
+ - 132 :  : 'Z'
+ - 133 :  : '<init>'
+ - 134 :  : '()V'
+ - 135 :  : 'Code'
+ - 136 :  : 'LineNumberTable'
+ - 137 :  : '(Ljava/lang/String;)V'
+ - 138 :  : '(Ljava/lang/String;Ljava/lang/Throwable;)V'
+ - 139 :  : '(Ljava/lang/Throwable;)V'
+ - 140 :  : 'StackMapTable'
+ - 141 :  : 'java/lang/Throwable'
+ - 142 :  : 'java/lang/String'
+ - 143 :  : '(Ljava/lang/String;Ljava/lang/Throwable;ZZ)V'
+ - 144 :  : 'getMessage'
+ - 145 :  : '()Ljava/lang/String;'
+ - 146 :  : 'getLocalizedMessage'
+ - 147 :  : 'getCause'
+ - 148 :  : '()Ljava/lang/Throwable;'
+ - 149 :  : 'initCause'
+ - 150 :  : '(Ljava/lang/Throwable;)Ljava/lang/Throwable;'
+ - 151 :  : 'toString'
+ - 152 :  : 'printStackTrace'
+ - 153 :  : '(Ljava/io/PrintStream;)V'
+ - 154 :  : '(Ljava/lang/Throwable$PrintStreamOrWriter;)V'
+ - 155 :  : 'java/lang/Throwable$PrintStreamOrWriter'
+ - 156 :  : 'java/util/Set'
+ - 157 :  : 'java/lang/Object'
+ - 158 :  : 'printEnclosedStackTrace'
+ - 159 :  : '(Ljava/lang/Throwable$PrintStreamOrWriter;[Ljava/lang/StackTraceElement;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)V'
+ - 160 :  : '(Ljava/lang/Throwable$PrintStreamOrWriter;[Ljava/lang/StackTraceElement;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set<Ljava/lang/Throwable;>;)V'
+ - 161 :  : '(Ljava/io/PrintWriter;)V'
+ - 162 :  : 'fillInStackTrace'
+ - 163 :  : '(I)Ljava/lang/Throwable;'
+ - 164 :  : 'getStackTrace'
+ - 165 :  : '()[Ljava/lang/StackTraceElement;'
+ - 166 :  : 'getOurStackTrace'
+ - 167 :  : 'setStackTrace'
+ - 168 :  : '([Ljava/lang/StackTraceElement;)V'
+ - 169 :  : 'getStackTraceDepth'
+ - 170 :  : '()I'
+ - 171 :  : 'getStackTraceElement'
+ - 172 :  : '(I)Ljava/lang/StackTraceElement;'
+ - 173 :  : 'readObject'
+ - 174 :  : '(Ljava/io/ObjectInputStream;)V'
+ - 175 :  : 'java/util/List'
+ - 176 :  : 'java/util/Iterator'
+ - 177 :  : 'Exceptions'
+ - 178 :  : 'java/io/IOException'
+ - 179 :  : 'java/lang/ClassNotFoundException'
+ - 180 :  : 'writeObject'
+ - 181 :  : '(Ljava/io/ObjectOutputStream;)V'
+ - 182 :  : 'addSuppressed'
+ - 183 :  : 'getSuppressed'
+ - 184 :  : '()[Ljava/lang/Throwable;'
+ - 185 :  : '<clinit>'
+ - 186 :  : 'SourceFile'
+ - 187 :  : 'Throwable.java'
+ - 188 :  : name_index=133 signature_index=134
+ - 189 :  : name_index=117 signature_index=118
+ - 190 :  : name_index=115 signature_index=116
+ - 191 :  : name_index=119 signature_index=116
+ - 192 :  : name_index=120 signature_index=121
+ - 193 :  : name_index=124 signature_index=121
+ - 194 :  : name_index=162 signature_index=148
+ - 195 :  : name_index=113 signature_index=114
+ - 196 :  : name_index=151 signature_index=145
+ - 197 :  : name_index=144 signature_index=145
+ - 198 :  : 'java/lang/IllegalStateException'
+ - 199 :  : 'java/lang/StringBuilder'
+ - 200 :  : 'Can't overwrite cause with '
+ - 201 :  : name_index=294 signature_index=295
+ - 202 :  : 'a null'
+ - 203 :  : 'java/util/Objects'
+ - 204 :  : name_index=151 signature_index=297
+ - 205 :  : name_index=133 signature_index=138
+ - 206 :  : 'java/lang/IllegalArgumentException'
+ - 207 :  : 'Self-causation not permitted'
+ - 208 :  : name_index=298 signature_index=299
+ - 209 :  : 'java/lang/Class' {0x718160f0}
+ - 210 :  : name_index=301 signature_index=145
+ - 211 :  : name_index=146 signature_index=145
+ - 212 :  : ': '
+ - 213 :  : 'java/lang/System' {0x71820a68}
+ - 214 :  : name_index=303 signature_index=304
+ - 215 :  : name_index=152 signature_index=153
+ - 216 :  : 'java/lang/Throwable$WrappedPrintStream'
+ - 217 :  : name_index=133 signature_index=153
+ - 218 :  : name_index=152 signature_index=154
+ - 219 :  : 'java/util/IdentityHashMap'
+ - 220 :  : 'java/util/Collections' {0x71900640}
+ - 221 :  : name_index=306 signature_index=307
+ - 222 :  : 'java/util/Set'
+ - 223 :  : name_index=308 signature_index=309
+ - 224 :  : name_index=310 signature_index=311
+ - 225 :  : name_index=312 signature_index=313
+ - 226 :  : name_index=166 signature_index=165
+ - 227 :  : '	at '
+ - 228 :  : name_index=294 signature_index=314
+ - 229 :  : name_index=183 signature_index=184
+ - 230 :  : 'Suppressed: '
+ - 231 :  : '	'
+ - 232 :  : name_index=158 signature_index=159
+ - 233 :  : name_index=147 signature_index=148
+ - 234 :  : 'Caused by: '
+ - 235 :  : name_index=131 signature_index=132
+ - 236 :  : 'java/lang/Thread'
+ - 237 :  : name_index=316 signature_index=309
+ - 238 :  : 'java/lang/AssertionError'
+ - 239 :  : name_index=317 signature_index=309
+ - 240 :  : '	[CIRCULAR REFERENCE:'
+ - 241 :  : ']'
+ - 242 :  : name_index=318 signature_index=309
+ - 243 :  : '	... '
+ - 244 :  : name_index=294 signature_index=319
+ - 245 :  : ' more'
+ - 246 :  : 'java/lang/Throwable$WrappedPrintWriter'
+ - 247 :  : name_index=133 signature_index=161
+ - 248 :  : name_index=111 signature_index=112
+ - 249 :  : name_index=162 signature_index=163
+ - 250 :  : '[Ljava/lang/StackTraceElement;'
+ - 251 :  : name_index=320 signature_index=311
+ - 252 :  : name_index=169 signature_index=170
+ - 253 :  : 'java/lang/StackTraceElement'
+ - 254 :  : name_index=171 signature_index=172
+ - 255 :  : '[Ljava/lang/StackTraceElement;'
+ - 256 :  : 'java/lang/NullPointerException'
+ - 257 :  : 'stackTrace['
+ - 258 :  : name_index=133 signature_index=137
+ - 259 :  : 'java/io/ObjectInputStream'
+ - 260 :  : name_index=322 signature_index=134
+ - 261 :  : 'java/util/List'
+ - 262 :  : name_index=323 signature_index=324
+ - 263 :  : 'java/util/ArrayList'
+ - 264 :  : name_index=133 signature_index=325
+ - 265 :  : name_index=326 signature_index=327
+ - 266 :  : 'java/util/Iterator'
+ - 267 :  : name_index=328 signature_index=324
+ - 268 :  : name_index=329 signature_index=311
+ - 269 :  : 'java/lang/Throwable'
+ - 270 :  : 'Cannot suppress a null exception.'
+ - 271 :  : 'Self-suppression not permitted'
+ - 272 :  : '[Ljava/lang/StackTraceElement;'
+ - 273 :  : name_index=330 signature_index=331
+ - 274 :  : 'null StackTraceElement in serial stream. '
+ - 275 :  : '[Ljava/lang/StackTraceElement;'
+ - 276 :  : name_index=332 signature_index=116
+ - 277 :  : 'java/io/ObjectOutputStream'
+ - 278 :  : name_index=334 signature_index=134
+ - 279 :  : name_index=129 signature_index=130
+ - 280 :  : name_index=335 signature_index=336
+ - 281 :  : name_index=337 signature_index=324
+ - 282 :  : name_index=338 signature_index=339
+ - 283 :  : 'java/lang/Object'
+ - 284 :  : 'java/io/Serializable'
+ - 285 :  : 'java/lang/Throwable$1'
+ - 286 :  : 'java/lang/Throwable$PrintStreamOrWriter'
+ - 287 :  : 'java/lang/Throwable$SentinelHolder'
+ - 288 :  : 'java/lang/String'
+ - 289 :  : 'java/util/Set'
+ - 290 :  : 'java/util/List'
+ - 291 :  : 'java/util/Iterator'
+ - 292 :  : 'java/io/IOException'
+ - 293 :  : 'java/lang/ClassNotFoundException'
+ - 294 :  : 'append'
+ - 295 :  : '(Ljava/lang/String;)Ljava/lang/StringBuilder;'
+ - 296 :  : 'java/util/Objects'
+ - 297 :  : '(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;'
+ - 298 :  : 'getClass'
+ - 299 :  : '()Ljava/lang/Class;'
+ - 300 :  : 'java/lang/Class'
+ - 301 :  : 'getName'
+ - 302 :  : 'java/lang/System'
+ - 303 :  : 'err'
+ - 304 :  : 'Ljava/io/PrintStream;'
+ - 305 :  : 'java/util/Collections'
+ - 306 :  : 'newSetFromMap'
+ - 307 :  : '(Ljava/util/Map;)Ljava/util/Set;'
+ - 308 :  : 'add'
+ - 309 :  : '(Ljava/lang/Object;)Z'
+ - 310 :  : 'lock'
+ - 311 :  : '()Ljava/lang/Object;'
+ - 312 :  : 'println'
+ - 313 :  : '(Ljava/lang/Object;)V'
+ - 314 :  : '(Ljava/lang/Object;)Ljava/lang/StringBuilder;'
+ - 315 :  : 'java/lang/Thread'
+ - 316 :  : 'holdsLock'
+ - 317 :  : 'contains'
+ - 318 :  : 'equals'
+ - 319 :  : '(I)Ljava/lang/StringBuilder;'
+ - 320 :  : 'clone'
+ - 321 :  : 'java/io/ObjectInputStream'
+ - 322 :  : 'defaultReadObject'
+ - 323 :  : 'isEmpty'
+ - 324 :  : '()Z'
+ - 325 :  : '(I)V'
+ - 326 :  : 'iterator'
+ - 327 :  : '()Ljava/util/Iterator;'
+ - 328 :  : 'hasNext'
+ - 329 :  : 'next'
+ - 330 :  : 'STACK_TRACE_ELEMENT_SENTINEL'
+ - 331 :  : 'Ljava/lang/StackTraceElement;'
+ - 332 :  : 'STACK_TRACE_SENTINEL'
+ - 333 :  : 'java/io/ObjectOutputStream'
+ - 334 :  : 'defaultWriteObject'
+ - 335 :  : 'toArray'
+ - 336 :  : '([Ljava/lang/Object;)[Ljava/lang/Object;'
+ - 337 :  : 'desiredAssertionStatus'
+ - 338 :  : 'unmodifiableList'
+ - 339 :  : '(Ljava/util/List;)Ljava/util/List;'
+
+R11=0x000000000281f600 is pointing into the stack for thread: 0x000000000051f800
+R12=0x000000000051f800 is a thread
+R13=0x0000000000000014 is an unknown value
+R14=0x00000000025a32c0 is an unknown value
+R15=0x00000000025b01e0 is an unknown value
+
+
+Stack: [0x0000000002720000,0x0000000002820000],  sp=0x000000000281f4d0,  free space=1021k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0xa4289]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.lang.Throwable.printStackTrace()V+4
+j  com.test.designPatterns.memento.TestMemento.redo(Lcom/test/designPatterns/memento/ChessMan;Lcom/test/designPatterns/memento/MementoCreater;)V+4
+j  com.test.designPatterns.memento.TestMemento.main([Ljava/lang/String;)V+80
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x000000000c72c000 JavaThread "Service Thread" daemon [_thread_blocked, id=5372, stack(0x000000000db10000,0x000000000dc10000)]
+  0x000000000c729800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=648, stack(0x000000000d930000,0x000000000da30000)]
+  0x000000000c726000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=5192, stack(0x000000000d550000,0x000000000d650000)]
+  0x000000000c717000 JavaThread "JDWP Command Reader" daemon [_thread_in_native, id=6500, stack(0x000000000d7d0000,0x000000000d8d0000)]
+  0x000000000c714000 JavaThread "JDWP Event Helper Thread" daemon [_thread_blocked, id=2436, stack(0x000000000d680000,0x000000000d780000)]
+  0x000000000c708800 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_blocked, id=4200, stack(0x000000000d430000,0x000000000d530000)]
+  0x000000000c702800 JavaThread "Attach Listener" daemon [_thread_blocked, id=5088, stack(0x000000000cdf0000,0x000000000cef0000)]
+  0x000000000b4c9800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=2528, stack(0x000000000cc00000,0x000000000cd00000)]
+  0x000000000b45d000 JavaThread "Finalizer" daemon [_thread_blocked, id=372, stack(0x000000000c600000,0x000000000c700000)]
+  0x000000000b456000 JavaThread "Reference Handler" daemon [_thread_blocked, id=6208, stack(0x000000000c4f0000,0x000000000c5f0000)]
+=>0x000000000051f800 JavaThread "main" [_thread_in_vm, id=7028, stack(0x0000000002720000,0x0000000002820000)]
+
+Other Threads:
+  0x000000000b451000 VMThread [stack: 0x000000000c320000,0x000000000c420000] [id=7124]
+  0x000000000c774800 WatcherThread [stack: 0x000000000dd40000,0x000000000de40000] [id=6172]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 114688K, used 3932K [0x00000007d5d00000, 0x00000007ddd00000, 0x0000000800000000)
+  eden space 98304K, 4% used [0x00000007d5d00000,0x00000007d60d7128,0x00000007dbd00000)
+  from space 16384K, 0% used [0x00000007dcd00000,0x00000007dcd00000,0x00000007ddd00000)
+  to   space 16384K, 0% used [0x00000007dbd00000,0x00000007dbd00000,0x00000007dcd00000)
+ ParOldGen       total 262144K, used 0K [0x0000000781800000, 0x0000000791800000, 0x00000007d5d00000)
+  object space 262144K, 0% used [0x0000000781800000,0x0000000781800000,0x0000000791800000)
+ PSPermGen       total 131072K, used 2567K [0x0000000771800000, 0x0000000779800000, 0x0000000781800000)
+  object space 131072K, 1% used [0x0000000771800000,0x0000000771a81ec8,0x0000000779800000)
+
+Card table byte_map: [0x0000000005820000,0x0000000005ca0000] byte_map_base: 0x0000000001c94000
+
+Polling page: 0x0000000000130000
+
+Code Cache  [0x0000000002820000, 0x0000000002a90000, 0x0000000005820000)
+ total_blobs=179 nmethods=3 adapters=138 free_code_cache=48767Kb largest_free_block=49915328
+
+Compilation events (6 events):
+Event: 0.219 Thread 0x000000000c729800    1             java.lang.String::hashCode (55 bytes)
+Event: 0.219 Thread 0x000000000c726000    2             java.lang.String::indexOf (70 bytes)
+Event: 0.227 Thread 0x000000000c726000 nmethod 2 0x000000000287e490 code [0x000000000287e5e0, 0x000000000287e7c8]
+Event: 0.228 Thread 0x000000000c729800 nmethod 1 0x0000000002882250 code [0x0000000002882380, 0x0000000002882518]
+Event: 0.233 Thread 0x000000000c726000    3             java.lang.String::indexOf (166 bytes)
+Event: 0.241 Thread 0x000000000c726000 nmethod 3 0x0000000002881990 code [0x0000000002881ae0, 0x0000000002881fb8]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (5 events):
+Event: 0.050 Thread 0x000000000051f800 Threw 0x00000007d5d10840 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jni.cpp:3991
+Event: 0.224 Thread 0x000000000051f800 Threw 0x00000007d5ddcac0 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 0.231 Thread 0x000000000051f800 Threw 0x00000007d5de30b0 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 0.232 Thread 0x000000000051f800 Threw 0x00000007d5de5048 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 0.232 Thread 0x000000000051f800 Threw 0x00000007d5de7568 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+
+Events (10 events):
+Event: 53.561 Executing VM operation: RedefineClasses
+Event: 53.561 Executing VM operation: RedefineClasses done
+Event: 53.585 Executing VM operation: EnterInterpOnlyMode
+Event: 53.585 Executing VM operation: EnterInterpOnlyMode done
+Event: 53.585 Executing VM operation: GetCurrentLocation
+Event: 53.585 Executing VM operation: GetCurrentLocation done
+Event: 53.585 Executing VM operation: ChangeSingleStep
+Event: 53.585 Executing VM operation: ChangeSingleStep done
+Event: 53.586 Executing VM operation: ChangeSingleStep
+Event: 53.586 Executing VM operation: ChangeSingleStep done
+
+
+Dynamic libraries:
+0x000000013f320000 - 0x000000013f353000 	D:\MyEclipse\JDK\bin\javaw.exe
+0x0000000077c10000 - 0x0000000077dbb000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00000000779f0000 - 0x0000000077b0f000 	C:\Windows\system32\kernel32.dll
+0x000007fefde90000 - 0x000007fefdefb000 	C:\Windows\system32\KERNELBASE.dll
+0x000007fefe820000 - 0x000007fefe8fb000 	C:\Windows\system32\ADVAPI32.dll
+0x000007fefe3b0000 - 0x000007fefe44f000 	C:\Windows\system32\msvcrt.dll
+0x000007fefe450000 - 0x000007fefe46f000 	C:\Windows\SYSTEM32\sechost.dll
+0x000007fefdf40000 - 0x000007fefe06e000 	C:\Windows\system32\RPCRT4.dll
+0x0000000077b10000 - 0x0000000077c0a000 	C:\Windows\system32\USER32.dll
+0x000007fefef00000 - 0x000007fefef67000 	C:\Windows\system32\GDI32.dll
+0x000007fefff10000 - 0x000007fefff1e000 	C:\Windows\system32\LPK.dll
+0x000007fefe470000 - 0x000007fefe53a000 	C:\Windows\system32\USP10.dll
+0x000007fefc1e0000 - 0x000007fefc3d4000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7600.16385_none_fa645303170382f6\COMCTL32.dll
+0x000007fefe7a0000 - 0x000007fefe811000 	C:\Windows\system32\SHLWAPI.dll
+0x000007fefe2d0000 - 0x000007fefe2fe000 	C:\Windows\system32\IMM32.DLL
+0x000007fefe690000 - 0x000007fefe799000 	C:\Windows\system32\MSCTF.dll
+0x0000000075370000 - 0x0000000075442000 	D:\MyEclipse\JDK\jre\bin\msvcr100.dll
+0x0000000060f30000 - 0x0000000061702000 	D:\MyEclipse\JDK\jre\bin\server\jvm.dll
+0x000007fefc570000 - 0x000007fefc579000 	C:\Windows\system32\WSOCK32.dll
+0x000007fefeb80000 - 0x000007fefebcd000 	C:\Windows\system32\WS2_32.dll
+0x000007fefe3a0000 - 0x000007fefe3a8000 	C:\Windows\system32\NSI.dll
+0x000007fefbb90000 - 0x000007fefbbcb000 	C:\Windows\system32\WINMM.dll
+0x0000000077de0000 - 0x0000000077de7000 	C:\Windows\system32\PSAPI.DLL
+0x0000000075270000 - 0x000000007527f000 	D:\MyEclipse\JDK\jre\bin\verify.dll
+0x0000000075240000 - 0x0000000075268000 	D:\MyEclipse\JDK\jre\bin\java.dll
+0x000000006e660000 - 0x000000006e695000 	D:\MyEclipse\JDK\jre\bin\jdwp.dll
+0x000000006eae0000 - 0x000000006eae8000 	D:\MyEclipse\JDK\jre\bin\npt.dll
+0x000000006fbf0000 - 0x000000006fc05000 	D:\MyEclipse\JDK\jre\bin\zip.dll
+0x000000006ead0000 - 0x000000006ead9000 	D:\MyEclipse\JDK\jre\bin\dt_socket.dll
+0x000007fef9f40000 - 0x000007fef9f66000 	C:\Program Files (x86)\Sangfor\SSL\ClientComponent\SangforNspX64.dll
+0x000007feffd00000 - 0x000007fefff01000 	C:\Windows\system32\ole32.dll
+0x000007fefeca0000 - 0x000007fefed77000 	C:\Windows\system32\OLEAUT32.dll
+0x000007fefc0f0000 - 0x000007fefc105000 	C:\Windows\system32\NLAapi.dll
+0x000007fefd4a0000 - 0x000007fefd4f4000 	C:\Windows\System32\mswsock.dll
+0x000007fefd2e0000 - 0x000007fefd33b000 	C:\Windows\system32\DNSAPI.dll
+0x000007fefa050000 - 0x000007fefa05b000 	C:\Windows\System32\winrnr.dll
+0x000007fef9b00000 - 0x000007fef9b15000 	C:\Windows\system32\napinsp.dll
+0x000007fef9ae0000 - 0x000007fef9af9000 	C:\Windows\system32\pnrpnsp.dll
+0x000007fef9ad0000 - 0x000007fef9ae0000 	C:\Windows\system32\wshbth.dll
+0x000007fefb290000 - 0x000007fefb2b7000 	C:\Windows\system32\IPHLPAPI.DLL
+0x000007fefb230000 - 0x000007fefb23b000 	C:\Windows\system32\WINNSI.DLL
+0x000007fefb130000 - 0x000007fefb183000 	C:\Windows\System32\fwpuclnt.dll
+0x000007fef9a50000 - 0x000007fef9a58000 	C:\Windows\system32\rasadhlp.dll
+0x000007fefcc10000 - 0x000007fefcd8a000 	C:\Program Files (x86)\Sangfor\SSL\ClientComponent\SangforTcpX64.dll
+0x000007fefcc00000 - 0x000007fefcc0c000 	C:\Windows\system32\VERSION.dll
+0x000007fefdc20000 - 0x000007fefdc59000 	C:\Windows\system32\WINTRUST.dll
+0x000007fefdc80000 - 0x000007fefdde6000 	C:\Windows\system32\CRYPT32.dll
+0x000007fefdc10000 - 0x000007fefdc1f000 	C:\Windows\system32\MSASN1.dll
+0x000007fefcbf0000 - 0x000007fefcbf7000 	C:\Windows\System32\wshtcpip.dll
+0x000007fef9b20000 - 0x000007fef9c45000 	C:\Windows\system32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:52505 -Xms384m -Xmx2024m -XX:PermSize=128m -XX:MaxPermSize=256m -XX:-UseGCOverheadLimit -Dfile.encoding=GBK 
+java_command: com.test.designPatterns.memento.TestMemento
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=D:\MyEclipse\JDK\jre\bin;D:/MyEclipse/JDK/bin/../jre/bin/server;D:/MyEclipse/JDK/bin/../jre/bin;D:/MyEclipse/JDK/bin/../jre/lib/amd64;D:\mysql-5.6.27\mysql-5.6.27\bin;D:\MyEclipse\JDK\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;D:\Program Files\TortoiseSVN\bin;E:\eclipse-jee-luna-SR2-win32-x86_64\eclipse;
+USERNAME=zhuyumeng
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 42 Stepping 7, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 , 64 bit Build 7600 
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 42 stepping 7, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, aes, ht, tsc, tscinvbit
+
+Memory: 4k page, physical 8331120k(4047728k free), swap 16660344k(8134308k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (24.65-b04) for windows-amd64 JRE (1.7.0_67-b01), built on Jul 25 2014 08:55:00 by "java_re" with unknown MS VC++:1600
+
+time: Fri Jun 09 10:41:06 2017
+elapsed time: 56 seconds
+

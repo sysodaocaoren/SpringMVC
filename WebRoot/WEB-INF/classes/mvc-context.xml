@@ -63,5 +63,31 @@
     <bean id="logAspect" class="com.Log.LogAspect" />
     <bean id="logService" class="com.Log.service.LogServiceImp"></bean>
     
+    
+    <bean id="SpringQtzJob" class="com.test.TestQuart"/>  
+    <bean id="SpringQtzJobMethod" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
+	    <property name="targetObject">  
+	        <ref bean="SpringQtzJob"/>  
+	    </property>  
+	    <property name="targetMethod">
+	        <value>execute</value>  
+	    </property>  
+	</bean>  
+  
+	<!-- ======================== 调度触发器 ======================== -->  
+	<bean id="CronTriggerBean" class="org.springframework.scheduling.quartz.CronTriggerBean">  
+	    <property name="jobDetail" ref="SpringQtzJobMethod"></property>  
+	    <property name="cronExpression" value="5 * 15 * * ?"></property>  
+	</bean>  
+  
+	<!-- ======================== 调度工厂 ======================== -->  
+	<bean id="SpringJobSchedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">  
+	    <property name="triggers">  
+	        <list>  
+	            <ref bean="CronTriggerBean"/>  
+	        </list>  
+	    </property>  
+	</bean>  
+    
 </beans>
 
