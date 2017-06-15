@@ -1,9 +1,2 @@
 /com/
-/cxfbeans-context.xml
-/ehcache.xml
 /interceptor/
-/mvc-context.xml
-/mybatis-config.xml
-/mybatis-config1.xml
-/root-context.xml
-/user-context.xml
