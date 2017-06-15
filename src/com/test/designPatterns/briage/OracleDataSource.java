@@ -1,5 +1,6 @@
 package com.test.designPatterns.briage;
 
+
 public class OracleDataSource extends DataSource{
 
 	@Override

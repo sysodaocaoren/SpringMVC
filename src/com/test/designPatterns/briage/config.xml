@@ -1,0 +1,7 @@
+<?xml version="1.0"?>  
+<config>  
+    <!--RefinedAbstraction-->  
+    <className>com.test.designPatterns.briage.OracleDataSource</className>   
+    <!--ConcreteImplementor-->  
+    <className>com.test.designPatterns.briage.TxtPatten</className>  
+</config>  

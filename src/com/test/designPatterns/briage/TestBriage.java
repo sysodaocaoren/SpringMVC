@@ -8,8 +8,11 @@ public class TestBriage {
 	 * @param args
 	 */
 	public static void main(String[] args){
-		Patten pt=new XmlPatten();
-		DataSource dt=new SqlServerDataSource();
+		
+//		Patten pt=new XmlPatten();
+//		DataSource dt=new SqlServerDataSource();
+		Patten pt=(Patten)XmlUtil.getBean("xml");
+		DataSource dt=(DataSource)XmlUtil.getBean("dataSource");
 		dt.setPattem(pt);
 		dt.changeData("sb");
 		
