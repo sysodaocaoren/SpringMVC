@@ -17,6 +17,12 @@ public class TestSort {
 	}
 	
 	//冒泡排序
+	/**
+	 * 冒泡排序，小的往前去
+	 * 1.一次拿数组中的一个数与前面的数比较，如果比前面的小，就交换
+	 * @param ints
+	 * @return
+	 */
 	public static int[] maopao(int[] ints){
 		for(int i=0;i<ints.length-1;i++){
 			for(int j=0;j<ints.length-i-1;j++){
@@ -31,6 +37,7 @@ public class TestSort {
 	}
 	
 	//选择排序
+	
 	public static int[] xuanze(int[] ints){
 		for(int i=0;i<ints.length-1;i++){
 			int min=i;

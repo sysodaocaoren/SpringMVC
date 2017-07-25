@@ -75,6 +75,11 @@ public class UserController extends BaseController{
 		ModelAndView mav = new ModelAndView("login");
 		return mav;
 	}
+	@RequestMapping("toAngularjs")
+	public ModelAndView toAngularjs(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView("AngularJS/test001");
+		return mav;
+	}
 	
 	/***
 	 * 验证参数是否为空

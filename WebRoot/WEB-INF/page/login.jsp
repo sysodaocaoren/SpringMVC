@@ -57,6 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			password:<input type="password" name="password" />
 		<p>
 			createdDate: <input type="text" name="createdDate" onfocus="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd'})" class="Wdate" />
+			testDate: <time datetime="YYYY-MM-DDThh:mm:ssTZD"> </br>
 			<input type="submit" value="submit" />
 			<input type="button" value="显示" onclick="showIframe()"/>
 		<div>
